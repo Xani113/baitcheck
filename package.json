@@ -5,6 +5,7 @@
   "description": "BaitCheck - Don't take the bait. Mobile-first scam checking PWA for Indian users.",
   "scripts": {
     "test": "node run-tests.node.js",
+    "build": "echo 'Static deployment ready'",
     "start": "python -m http.server 8000"
   },
   "keywords": [

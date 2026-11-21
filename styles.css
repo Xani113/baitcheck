@@ -35,7 +35,7 @@
   --radius-lg: 12px;
   --radius-pill: 9999px;
 
-  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "DM Sans", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Bengali", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
 
   font-size: 16px; /* Dynamically modified by A-/A+ to 14px or 18px */
@@ -164,10 +164,6 @@ button, input, textarea, select {
 .nav-link.active {
   color: var(--color-indigo);
   background-color: var(--color-indigo-tint);
-  font-weight: 600;
-}
-.nav-link.link-evals {
-  color: var(--color-safe);
   font-weight: 600;
 }
 
@@ -443,11 +439,14 @@ button, input, textarea, select {
 
 @media (max-width: 580px) {
   .left-ambient-scanner {
-    width: 250px;
-    height: 250px;
-    top: -20px;
-    left: -30px;
-    opacity: 0.14;
+    width: 240px;
+    height: 240px;
+    top: -50px;
+    left: -70px;
+    opacity: 0.10; /* Pure soft ambient curvature without distracting text */
+  }
+  .ambient-scanner-shield {
+    display: none; /* Hide solid shield hub on mobile to eliminate clutter behind headline */
   }
   .ambient-scanner-ring.ring-outer {
     width: 215px;
@@ -1938,7 +1937,130 @@ mark.flagged-word {
   }
 
   .main-content {
-    padding-bottom: 80px;
+    padding: 16px 14px 100px 14px;
+  }
+}
+
+/* Mobile Screens Enhancements & Touch Accessibility (<= 480px) */
+@media (max-width: 480px) {
+  .top-nav {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .brand-text {
+    font-size: 1.05rem;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .lang-selector {
+    padding: 4px 6px;
+    font-size: 0.75rem;
+    max-width: 100px;
+  }
+  .btn-text-size {
+    padding: 4px 7px;
+    font-size: 0.72rem;
+  }
+
+  .privacy-badge {
+    display: inline-flex;
+    align-items: flex-start;
+    padding: 6px 10px;
+    font-size: 0.725rem;
+    line-height: 1.35;
+    border-radius: var(--radius-sm);
+  }
+  .privacy-badge svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .hero-app-title {
+    font-size: 1.85rem;
+    margin-top: 6px;
+    margin-bottom: 2px;
+  }
+  .hero-tagline {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .hero-description {
+    font-size: 0.825rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .input-header-row {
+    margin-bottom: 6px;
+  }
+  .input-main-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+  }
+  .detected-type-chip {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+  }
+
+  .input-toolbar-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+  }
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .btn-tool-secondary {
+    padding: 6px 10px;
+    font-size: 0.775rem;
+    min-height: 36px;
+    flex: 1;
+    justify-content: center;
+  }
+  .btn-tool-subtle {
+    padding: 6px 8px;
+    font-size: 0.775rem;
+  }
+  .toolbar-right {
+    width: 100%;
+  }
+  .btn-primary-check {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 0.925rem;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .segmented-control-bar {
+    margin-top: 8px;
+    padding: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .segmented-control-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-tool {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .examples-row-container {
+    margin: 10px 0 20px 0;
+    gap: 6px;
+  }
+  .btn-example {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    min-height: 30px;
   }
 }
 

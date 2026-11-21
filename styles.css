@@ -863,11 +863,6 @@ button, input, textarea, select {
 .btn-tool-secondary:hover {
   background-color: #E2DDD0;
 }
-.btn-tool-secondary.recording {
-  background-color: var(--color-danger-bg);
-  color: var(--color-danger);
-  border-color: var(--color-danger);
-}
 
 .btn-tool-subtle {
   background: transparent;

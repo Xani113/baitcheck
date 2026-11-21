@@ -299,37 +299,6 @@ class BaitCheckApp {
       });
     }
 
-    // Web Speech API Voice Button
-    const btnSpeak = document.getElementById('btnSpeak');
-    if (btnSpeak && textarea) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        const recognition = new SpeechRecognition();
-        recognition.lang = this.currentLang === 'hi' ? 'hi-IN' : (this.currentLang === 'as' ? 'as-IN' : 'en-IN');
-        recognition.interimResults = false;
-
-        btnSpeak.addEventListener('click', () => {
-          btnSpeak.classList.add('recording');
-          recognition.start();
-        });
-
-        recognition.onresult = (event) => {
-          btnSpeak.classList.remove('recording');
-          const transcript = event.results[0][0].transcript;
-          if (transcript) {
-            textarea.value = transcript;
-            textarea.dispatchEvent(new Event('input'));
-            this.runCheck();
-          }
-        };
-
-        recognition.onerror = () => btnSpeak.classList.remove('recording');
-        recognition.onend = () => btnSpeak.classList.remove('recording');
-      } else {
-        btnSpeak.style.display = 'none';
-      }
-    }
-
     // Example Presets
     document.querySelectorAll('.btn-example').forEach(btn => {
       btn.addEventListener('click', () => {

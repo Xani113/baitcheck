@@ -85,8 +85,7 @@ class BaitCheckApp {
       '/known-scams': () => this.showView('known-scams'),
       '/guides': () => this.showView('guides'),
       '/help': () => this.showView('help'),
-      '/history': () => this.showView('history'),
-      '/exposure': () => this.showView('exposure')
+      '/history': () => this.showView('history')
     });
   }
 
@@ -170,8 +169,6 @@ class BaitCheckApp {
       this.renderHelpView();
     } else if (current === 'history') {
       this.renderHistoryView();
-    } else if (current === 'exposure') {
-      this.renderExposureView();
     }
   }
 
@@ -823,52 +820,6 @@ class BaitCheckApp {
         this.renderHistoryView();
       });
     }
-  }
-
-  renderExposureView() {
-    const exposureContainer = document.getElementById('exposureContentContainer');
-    if (!exposureContainer) return;
-
-    // Locally inspect device parameters
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown';
-    const screenRes = `${window.screen.width} x ${window.screen.height} (${window.devicePixelRatio}x)`;
-    const langs = navigator.languages ? navigator.languages.join(', ') : navigator.language;
-    const ua = navigator.userAgent;
-    const cookiesOn = navigator.cookieEnabled ? 'Enabled' : 'Disabled';
-    const cores = navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} logical cores` : 'Undisclosed';
-
-    exposureContainer.innerHTML = `
-      <div class="exposure-intro-card">
-        <h2>Client-Side Browser Exposure Audit</h2>
-        <p>This tool demonstrates what any website or tracking script can passively observe about your device the moment you open a link. <strong>Nothing shown below is transmitted to any server.</strong></p>
-      </div>
-      <div class="exposure-grid">
-        <div class="exposure-card">
-          <div class="exp-title">Time Zone & Regional Clock</div>
-          <div class="exp-val">${this.escapeHtml(tz)}</div>
-          <p class="exp-note">Websites use this to confirm your geographic country regardless of VPN use.</p>
-        </div>
-        <div class="exposure-card">
-          <div class="exp-title">Display Geometry</div>
-          <div class="exp-val">${this.escapeHtml(screenRes)}</div>
-          <p class="exp-note">Physical dimensions and pixel density identify specific phone and monitor models.</p>
-        </div>
-        <div class="exposure-card">
-          <div class="exp-title">Configured Languages</div>
-          <div class="exp-val">${this.escapeHtml(langs)}</div>
-          <p class="exp-note">Your preferred language stack reveals your regional identity.</p>
-        </div>
-        <div class="exposure-card">
-          <div class="exp-title">Hardware Concurrency</div>
-          <div class="exp-val">${this.escapeHtml(cores)}</div>
-          <p class="exp-note">CPU thread count helps distinguish mobile chips from desktop computers.</p>
-        </div>
-      </div>
-      <div class="exposure-raw-card">
-        <strong>Browser User-Agent String:</strong>
-        <code>${this.escapeHtml(ua)}</code>
-      </div>
-    `;
   }
 }
 

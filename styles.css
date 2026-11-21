@@ -1808,57 +1808,6 @@ mark.flagged-word {
   border-radius: var(--radius-md);
 }
 
-/* Exposure */
-.exposure-intro-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin-bottom: 16px;
-}
-.exposure-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-bottom: 16px;
-}
-.exposure-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 14px;
-}
-.exp-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-muted);
-  text-transform: uppercase;
-}
-.exp-val {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-indigo);
-  margin: 6px 0;
-  word-break: break-word;
-}
-.exp-note {
-  font-size: 0.75rem;
-  color: var(--color-muted);
-}
-.exposure-raw-card {
-  background-color: var(--color-surface-subtle);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 12px;
-}
-.exposure-raw-card code {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  margin-top: 4px;
-  word-break: break-all;
-}
-
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--color-border);

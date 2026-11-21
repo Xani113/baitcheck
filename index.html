@@ -62,77 +62,190 @@
       <!-- ================= 1. HOME VIEW (#/) ================= -->
       <section id="view-home" class="app-view active">
         
-        <!-- Slim Trustworthy Hero -->
-        <div class="slim-hero">
-          <h1 class="hero-app-title">Bait<span class="accent-hook">Check</span></h1>
-          <p class="hero-tagline" data-i18n="tagline">Don't take the bait.</p>
-          <div class="privacy-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span data-i18n="privacy_promise">Your messages never leave your phone. All checks run locally & 100% offline.</span>
-          </div>
-        </div>
-
-        <!-- Universal Check Box Container -->
-        <div class="universal-box-wrapper">
-          <div class="universal-input-card">
+        <!-- Hero Split Layout: Left = Contents & Scanner, Right = Rotating Cyber Security Radar -->
+        <div class="hero-split-container">
+          
+          <!-- Left Column: Title, Headline, Console, Segmented Control, Presets -->
+          <div class="hero-left-column">
             
-            <div class="input-header-row">
-              <label for="universalInput" class="input-main-label">
-                Paste message, link, email, number or UPI
-              </label>
-              <span id="detectedChip" class="detected-type-chip">Detected: Message</span>
+            <div class="hero-text-block">
+              <div class="privacy-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span data-i18n="privacy_promise">Your messages never leave your phone. All checks run locally & 100% offline.</span>
+              </div>
+              <h1 class="hero-app-title">Bait<span class="accent-hook">Check</span></h1>
+              <p class="hero-tagline" data-i18n="tagline">Don't take the bait.</p>
+              <p class="hero-description">
+                Your digital safety, on autopilot. Check a message, link, email, phone number, website or QR code before you act — and see what the answer proves, and what it does not.
+              </p>
             </div>
 
-            <textarea 
-              id="universalInput" 
-              class="universal-textarea" 
-              rows="4" 
-              data-i18n-ph="input_placeholder" 
-              placeholder="Paste a message, link, email, phone number or UPI ID..."
-              aria-label="Content to analyze"
-            ></textarea>
+            <!-- Universal Check Box Container -->
+            <div class="universal-box-wrapper">
+              <div class="universal-input-card">
+                
+                <div class="input-header-row">
+                  <label for="universalInput" class="input-main-label">
+                    Paste message, link, email, number or UPI
+                  </label>
+                  <span id="detectedChip" class="detected-type-chip">Detected: Message</span>
+                </div>
 
-            <!-- Line-and-Hook animated signature indicator line -->
-            <div class="line-draw-container" aria-hidden="true">
-              <div id="lineDrawIndicator" class="line-draw-bar"></div>
-            </div>
+                <textarea 
+                  id="universalInput" 
+                  class="universal-textarea" 
+                  rows="4" 
+                  data-i18n-ph="input_placeholder" 
+                  placeholder="Paste a message, link, email, phone number or UPI ID..."
+                  aria-label="Content to analyze"
+                ></textarea>
 
-            <!-- Input Toolbar -->
-            <div class="input-toolbar-row">
-              <div class="toolbar-left">
-                <button id="btnPaste" class="btn-tool-secondary" type="button">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
-                  <span data-i18n="btn_paste">Paste</span>
-                </button>
-                <button id="btnSpeak" class="btn-tool-secondary" type="button" title="Speak into microphone">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-                  <span data-i18n="btn_speak">Speak</span>
-                </button>
-                <button id="btnClear" class="btn-tool-subtle" type="button" title="Clear text">
-                  <span data-i18n="btn_clear">Clear</span>
-                </button>
+                <!-- Line-and-Hook animated signature indicator line -->
+                <div class="line-draw-container" aria-hidden="true">
+                  <div id="lineDrawIndicator" class="line-draw-bar"></div>
+                </div>
+
+                <!-- Input Toolbar -->
+                <div class="input-toolbar-row">
+                  <div class="toolbar-left">
+                    <button id="btnPaste" class="btn-tool-secondary" type="button">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                      <span data-i18n="btn_paste">Paste</span>
+                    </button>
+                    <button id="btnSpeak" class="btn-tool-secondary" type="button" title="Speak into microphone">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                      <span data-i18n="btn_speak">Speak</span>
+                    </button>
+                    <button id="btnClear" class="btn-tool-subtle" type="button" title="Clear text">
+                      <span data-i18n="btn_clear">Clear</span>
+                    </button>
+                  </div>
+
+                  <div class="toolbar-right">
+                    <button id="btnCheck" class="btn-primary-check" type="button">
+                      <span data-i18n="btn_check">Check</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                  </div>
+                </div>
+
               </div>
 
-              <div class="toolbar-right">
-                <button id="btnCheck" class="btn-primary-check" type="button">
-                  <span data-i18n="btn_check">Check</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
+              <!-- Segmented Control Directly Below Universal Box to Force / Override Tool Type -->
+              <div class="segmented-control-bar" role="tablist" aria-label="Tool Selection">
+                <button class="tab-tool active" data-tool="auto" role="tab" data-i18n="tool_all">Auto</button>
+                <button class="tab-tool" data-tool="message" role="tab" data-i18n="tool_message">Message</button>
+                <button class="tab-tool" data-tool="link" role="tab" data-i18n="tool_link">Link</button>
+                <button class="tab-tool" data-tool="email" role="tab" data-i18n="tool_email">Email</button>
+                <button class="tab-tool" data-tool="number" role="tab" data-i18n="tool_number">Number</button>
+                <button class="tab-tool" data-tool="website" role="tab" data-i18n="tool_website">Website</button>
+                <button class="tab-tool" data-tool="qr" role="tab" data-i18n="tool_qr">UPI / QR</button>
+              </div>
+            </div>
+
+            <!-- "Try an Example" Row -->
+            <div class="examples-row-container">
+              <span class="examples-label" data-i18n="try_examples_label">Try an example:</span>
+              <div class="example-chips-group">
+                <button class="btn-example" data-example="kyc" data-i18n="example_kyc">KYC Freeze SMS</button>
+                <button class="btn-example" data-example="link" data-i18n="example_link">Spoofed SBI Link</button>
+                <button class="btn-example" data-example="upi" data-i18n="example_upi">UPI Collect Request</button>
+                <button class="btn-example example-safe" data-example="safe" data-i18n="example_safe">Genuine Bank Alert</button>
               </div>
             </div>
 
           </div>
 
-          <!-- Segmented Control Directly Below Universal Box to Force / Override Tool Type -->
-          <div class="segmented-control-bar" role="tablist" aria-label="Tool Selection">
-            <button class="tab-tool active" data-tool="auto" role="tab" data-i18n="tool_all">Auto</button>
-            <button class="tab-tool" data-tool="message" role="tab" data-i18n="tool_message">Message</button>
-            <button class="tab-tool" data-tool="link" role="tab" data-i18n="tool_link">Link</button>
-            <button class="tab-tool" data-tool="email" role="tab" data-i18n="tool_email">Email</button>
-            <button class="tab-tool" data-tool="number" role="tab" data-i18n="tool_number">Number</button>
-            <button class="tab-tool" data-tool="website" role="tab" data-i18n="tool_website">Website</button>
-            <button class="tab-tool" data-tool="qr" role="tab" data-i18n="tool_qr">UPI / QR</button>
+          <!-- Right Column: Interactive Rotating Cyber Radar Security Symbol -->
+          <div class="hero-right-column">
+            <div class="radar-container" aria-hidden="true">
+              <div class="radar-disc">
+                
+                <!-- Rotating Radar Sweep Beam -->
+                <div class="radar-sweep"></div>
+                
+                <!-- Circular Track Rings -->
+                <div class="radar-ring ring-outer"></div>
+                <div class="radar-ring ring-middle"></div>
+                <div class="radar-ring ring-inner"></div>
+                <div class="radar-core-glow"></div>
+
+                <!-- Center Security Core with Glowing Shield & Checkmark -->
+                <div class="radar-center-shield">
+                  <svg class="shield-svg" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                </div>
+
+                <!-- Orbiting Security Nodes & Indicators (Clockwise Outer Ring) -->
+                <div class="orbit-layer orbit-outer">
+                  <div class="orbit-node node-top" title="Email Inspection">
+                    <div class="node-icon-box bg-blue">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-top-right" title="Link Analysis">
+                    <div class="node-icon-box bg-slate">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-right" title="Scam Threat Alert">
+                    <div class="node-icon-box bg-red">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-bottom-right" title="E-Commerce & Website Check">
+                    <div class="node-icon-box bg-amber">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-bottom" title="APK Download Protection">
+                    <div class="node-icon-box bg-slate">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-bottom-left" title="Message Inspection">
+                    <div class="node-icon-box bg-blue">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-left" title="Search Heuristics">
+                    <div class="node-icon-box bg-slate">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-top-left" title="Caution Warning">
+                    <div class="node-icon-box bg-amber">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Inner Orbit Layer (Counter-Clockwise Middle Ring) -->
+                <div class="orbit-layer orbit-middle">
+                  <div class="orbit-node node-mid-right" title="QR & UPI Scanner">
+                    <div class="node-icon-box bg-cyan">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-mid-bottom" title="Phone Number Inspection">
+                    <div class="node-icon-box bg-slate">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                  </div>
+                  <div class="orbit-node node-mid-left" title="Deep Inspection">
+                    <div class="node-icon-box bg-slate">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="radar-blip-dot"></div>
+                </div>
+
+              </div>
+            </div>
           </div>
+
         </div>
 
         <!-- Case Card Results Container (Dynamically rendered directly underneath) -->

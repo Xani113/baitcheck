@@ -210,10 +210,10 @@ button, input, textarea, select {
 /* Main Content Wrapper */
 .main-content {
   flex: 1;
-  max-width: 920px;
+  max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-  padding: 24px 16px 80px 16px;
+  padding: 24px 20px 80px 20px;
 }
 
 /* App View Switcher */
@@ -230,27 +230,49 @@ button, input, textarea, select {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Slim Trust Hero */
-.slim-hero {
-  text-align: center;
+/* Hero Split Layout (Left = Text & Console, Right = Rotating Radar) */
+.hero-split-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 36px;
   margin-bottom: 24px;
 }
 
+.hero-left-column {
+  flex: 1;
+  min-width: 0;
+  max-width: 620px;
+}
+
+.hero-text-block {
+  margin-bottom: 18px;
+}
+
 .hero-app-title {
-  font-size: 1.85rem;
+  font-size: 2.1rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--color-ink);
+  margin-top: 8px;
   margin-bottom: 4px;
+  line-height: 1.15;
 }
 .hero-app-title .accent-hook {
   color: var(--color-indigo);
 }
 
 .hero-tagline {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 6px;
+}
+
+.hero-description {
+  font-size: 0.875rem;
   color: var(--color-muted);
-  margin-bottom: 10px;
+  line-height: 1.55;
 }
 
 .privacy-badge {
@@ -265,10 +287,269 @@ button, input, textarea, select {
   font-weight: 600;
 }
 
+/* Hero Right Column: Cyber Radar Module */
+.hero-right-column {
+  flex-shrink: 0;
+  width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.radar-container {
+  width: 410px;
+  height: 410px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-disc {
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #0B192C 0%, #060E1A 60%, #03070E 100%);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.12), inset 0 0 45px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background cyber grid lines */
+.radar-disc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Radar Sweep Beam */
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(0, 240, 255, 0.04) 310deg, rgba(0, 240, 255, 0.3) 360deg);
+  animation: radarSweepAnim 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes radarSweepAnim {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Circular Track Rings */
+.radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 335px;
+  height: 335px;
+  border: 1px dashed rgba(0, 240, 255, 0.18);
+}
+
+.ring-middle {
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(0, 240, 255, 0.22);
+}
+
+.ring-inner {
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(0, 240, 255, 0.28);
+}
+
+.radar-core-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Center Security Shield Hub */
+.radar-center-shield {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #040914;
+  border: 2px solid #00F0FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.45);
+  z-index: 10;
+  animation: shieldPulse 3s ease-in-out infinite;
+}
+
+@keyframes shieldPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
+    border-color: #00F0FF;
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.65);
+    border-color: #38BDF8;
+  }
+}
+
+.shield-svg {
+  filter: drop-shadow(0 0 6px #00F0FF);
+}
+
+/* Orbit Layers */
+.orbit-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-outer {
+  animation: orbitRotateClockwise 60s linear infinite;
+}
+
+.orbit-middle {
+  animation: orbitRotateCounter 40s linear infinite;
+}
+
+@keyframes orbitRotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitRotateCounter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Orbit Nodes Positioning */
+.orbit-node {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Ring Nodes (Radius ~167px from center: 195px) */
+.node-top { top: 12px; left: calc(50% - 16px); }
+.node-top-right { top: 62px; right: 62px; }
+.node-right { top: calc(50% - 16px); right: 12px; }
+.node-bottom-right { bottom: 62px; right: 62px; }
+.node-bottom { bottom: 12px; left: calc(50% - 16px); }
+.node-bottom-left { bottom: 62px; left: 62px; }
+.node-left { top: calc(50% - 16px); left: 12px; }
+.node-top-left { top: 62px; left: 62px; }
+
+/* Middle Ring Nodes (Radius ~125px from center: 195px) */
+.node-mid-right { top: 120px; right: 54px; }
+.node-mid-bottom { bottom: 54px; left: 135px; }
+.node-mid-left { top: 180px; left: 54px; }
+
+/* Orbit Badge Nodes Styling */
+.node-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.orbit-outer .node-icon-box {
+  animation: counterRotateClockwise 60s linear infinite;
+}
+
+.orbit-middle .node-icon-box {
+  animation: counterRotateCounter 40s linear infinite;
+}
+
+@keyframes counterRotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes counterRotateCounter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.node-icon-box.bg-blue {
+  background-color: #0B223D;
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
+}
+.node-icon-box.bg-slate {
+  background-color: #101928;
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #94A3B8;
+}
+.node-icon-box.bg-red {
+  background-color: #2F1316;
+  border-color: rgba(248, 113, 113, 0.45);
+  color: #F87171;
+}
+.node-icon-box.bg-amber {
+  background-color: #2E1F0A;
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #FBBF24;
+}
+.node-icon-box.bg-cyan {
+  background-color: #0A2B38;
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00F0FF;
+}
+
+/* Satellite Blip Dot */
+.radar-blip-dot {
+  position: absolute;
+  top: 140px;
+  left: 235px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #00F0FF;
+  box-shadow: 0 0 10px #00F0FF;
+  animation: blipPulse 2s ease-in-out infinite;
+}
+
+@keyframes blipPulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
 /* Universal Box Wrapper */
 .universal-box-wrapper {
-  max-width: 660px;
-  margin: 0 auto 20px auto;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .universal-input-card {
@@ -1291,6 +1572,27 @@ mark.flagged-word {
 /* Mobile Bottom Navigation (Hidden on Desktop) */
 .mobile-bottom-nav {
   display: none;
+}
+
+@media (max-width: 960px) {
+  .hero-split-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .hero-left-column {
+    max-width: 100%;
+  }
+  .hero-right-column {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .radar-container {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    transform: scale(0.82);
+  }
 }
 
 @media (max-width: 680px) {

@@ -1,34 +1,26 @@
 # 🛡️ PhishGuard AI — Digital Communication Threat Intelligence
 
-> Built for the **PromptWar Hackathon** (Cybersecurity Domain)  
+> Built for the **PromptWar Hackathon** (Cybersecurity Track)  
 > Real-time AI and heuristic detection of fraudulent SMS, WhatsApp messages, and deceptive links with actionable educational threat breakdowns.
 
 ---
 
-## 🚨 The Problem
+## 🌟 Key Features & UI/UX Modules
 
-With the exponential surge in digital communication and mobile messaging in India and worldwide:
-- Citizens daily receive deceptive SMS alerts, WhatsApp notices, and malicious links pretending to be from **banks** (SBI, HDFC, ICICI), **delivery couriers** (India Post, Amazon), **utility providers** (Electricity disconnection extortion), and **government portals** (Income Tax, Digital Arrest).
-- Many non-tech-savvy users, senior citizens, and first-time digital users struggle to distinguish between legitimate OTPs and malicious credential harvesters.
-- The consequences are devastating: financial drain, identity theft, and device compromise via malicious Android APK downloads.
-
----
-
-## 💡 The Solution: PhishGuard AI
-
-**PhishGuard AI** is a dual-layered threat detection and education engine:
-1. **Instant Scam Verdict & Risk Meter (0–100%)**:
-   - `DANGEROUS_PHISHING` | `SUSPICIOUS` | `SAFE`
-2. **Deep Threat Deconstruction**:
-   - Identifies impersonated brands and entities.
-   - Flags deceptive URLs, typo-squatted domains, and abusive TLDs (`.top`, `.xyz`, etc.).
-   - Catches malware APK distribution (`.apk` direct downloads).
-   - Identifies psychological manipulation and artificial urgency tactics.
-3. **Plain-English Educational Breakdown**:
-   - Explains *why* the message is dangerous without technical jargon.
-   - Provides an immediate emergency checklist (e.g., Freeze account, dial 1930).
-4. **1-Click WhatsApp Family Alert**:
-   - Formats a clean warning card to forward to parents and family group chats to protect loved ones.
+1. **🔍 Intelligent Threat Radar (Scam Scanner)**:
+   - Instant paste & scan with character counters and live presets (SBI KYC, India Post, Electricity disconnection extortion, YouTube task scams).
+   - Animated Radar scanning visualizer.
+   - **0–100% Threat Score Gauge** (`DANGEROUS_PHISHING`, `SUSPICIOUS`, `SAFE`).
+   - Detailed Threat Indicators breakdown with severity badges (`CRITICAL`, `HIGH`, `MEDIUM`).
+2. **⚖️ Spot The Fake (Side-by-Side Deconstruction)**:
+   - Visual comparative anatomy of authentic bank OTPs vs. malicious credential harvesters.
+   - Interactive callouts highlighting domain spoofing, synthetic urgency, and masking tricks.
+3. **🎮 Phishing Instincts Quiz**:
+   - Gamified cybersecurity awareness simulator for users to test their instincts on real-world scams.
+4. **🚨 Emergency SOS & Helplines**:
+   - Direct emergency directory: National Cybercrime Helpline **1930**, `cybercrime.gov.in`, and 24/7 bank card freeze numbers.
+5. **📱 1-Click WhatsApp Family Alert**:
+   - Formats a clean, high-priority safety warning card to forward to family group chats.
 
 ---
 
@@ -36,7 +28,7 @@ With the exponential surge in digital communication and mobile messaging in Indi
 
 ```mermaid
 flowchart TD
-    User([User: SMS / WhatsApp / Link]) --> UI[Next.js 14 Responsive Web App]
+    User([User: SMS / WhatsApp / Link]) --> UI[Next.js 14 Responsive Web App with Framer Motion]
     UI --> InputSanitizer[Input Sanitizer & Delimiter Wrapper]
     InputSanitizer --> HybridEngine{Hybrid Detection Engine}
     
@@ -56,9 +48,10 @@ flowchart TD
 ```
 
 - **Framework**: Next.js 14+ (App Router, TypeScript)
+- **Animation & Motion**: `framer-motion` for fluid tab transitions and radar sweeps
 - **Styling**: Tailwind CSS + `lucide-react`
 - **Detection**: Hybrid AI (Google Gemini 1.5 Flash structured output + fast deterministic regex/heuristic engine)
-- **Deployment**: Vercel ready (zero configuration)
+- **Deployment**: Vercel ready (zero configuration, < 0.2 MB total repo size)
 
 ---
 
@@ -79,7 +72,7 @@ PhishGuard AI was developed following **Eval-Driven Development (EDD)**:
 
 1. **Clone the repository**:
    ```bash
-   git clone <YOUR_REPO_URL>
+   git clone https://github.com/Xani113/baitcheck.git
    cd promptwar
    ```
 2. **Install dependencies**:
@@ -96,13 +89,3 @@ PhishGuard AI was developed following **Eval-Driven Development (EDD)**:
    npm run dev
    ```
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🌐 Deploy to Vercel
-
-PhishGuard AI is fully optimized for 1-click Vercel deployment:
-1. Push this repository to GitHub.
-2. Import the repository in [Vercel](https://vercel.com).
-3. Add the optional `GEMINI_API_KEY` in Environment Variables.
-4. Click **Deploy**!

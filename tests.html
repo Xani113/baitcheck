@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaitCheck — TDD Test Suite Runner</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      border-bottom: 1px solid #334155;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .metric-label {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .test-row {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .pass { border-left: 6px solid #22c55e; }
+    .fail { border-left: 6px solid #ef4444; }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-pass { background: #14532d; color: #86efac; }
+    .badge-fail { background: #7f1d1d; color: #fca5a5; }
+    .btn-run {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🛡️ BaitCheck TDD Benchmark Suite</h1>
+      <p>Automated verification against 25 multilingual ground-truth cases (English, Hindi, Hinglish, Assamese).</p>
+      <button class="btn-run" onclick="runAllTests()">Run All Tests</button>
+    </div>
+
+    <div id="summary" class="summary-card" style="display:none;"></div>
+    <div id="results"></div>
+  </div>
+
+  <script src="engine.js"></script>
+  <script src="test-runner.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      runAllTests();
+    });
+  </script>
+</body>
+</html>

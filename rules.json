@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "name": "BaitCheck Ruleset",
+  "thresholds": {
+    "safeMax": 20,
+    "cautionMax": 54,
+    "dangerMin": 55
+  },
+  "whitelist": [
+    {
+      "id": "WL_GENUINE_OTP",
+      "regex": "\\b(OTP|One Time Password)\\b.*\\b(do not share|valid for|INR|Rs\\.)\\b",
+      "mustNotHaveLinks": true
+    },
+    {
+      "id": "WL_BANK_TRANSACTION",
+      "regex": "\\b(debited|credited)\\b.*\\b(A/c|card|ending|available bal|NEFT|IMPS|UPI)\\b",
+      "mustNotHaveLinks": true
+    },
+    {
+      "id": "WL_DELIVERY_OUT",
+      "regex": "\\b(out for delivery|order #\\d+)\\b",
+      "mustNotHaveLinks": true
+    },
+    {
+      "id": "WL_PERSONAL_CONVERSATION",
+      "regex": "\\b(माँ|ঘৰলৈ|notes|আবেলি|পালোঁহি)\\b",
+      "mustNotHaveLinks": true
+    }
+  ],
+  "signals": [
+    {
+      "id": "SIG_MALWARE_APK",
+      "category": "malware",
+      "weight": 55,
+      "regex": "\\.apk(\\?|\\b|$)",
+      "reason_key": "reason_apk_download"
+    },
+    {
+      "id": "SIG_DIGITAL_ARREST",
+      "category": "extortion",
+      "weight": 55,
+      "regex": "(digital arrest|cbi police|arrest warrant|money laundering warrant|police notice)",
+      "reason_key": "reason_digital_arrest"
+    },
+    {
+      "id": "SIG_ELECTRICITY_EXTORTION",
+      "category": "utility_scam",
+      "weight": 50,
+      "regex": "(electricity.*(disconnect|cut)|power supply.*(disconnect|cut)|बिजली.*(काट|कट)|বিজুলী.*(কৰ্তন|সংযোগ|বন্ধ))",
+      "reason_key": "reason_electricity_threat"
+    },
+    {
+      "id": "SIG_BANK_KYC_SUSPENSION",
+      "category": "kyc_fraud",
+      "weight": 45,
+      "regex": "(kyc.*(suspend|block|expire|verify|update)|केवाईसी|কেৱাইচি|কেওয়াইচি|account.*(block|suspended))",
+      "reason_key": "reason_kyc_suspension"
+    },
+    {
+      "id": "SIG_TASK_JOB_SCAM",
+      "category": "job_scam",
+      "weight": 45,
+      "regex": "(work[\\s-]from[\\s-]home|part[\\s-]time[\\s-]job|like youtube|rating hotels|daily.*(earn|kamao|টকা)|घर बैठे.*पैसे|ঘৰত বহি)",
+      "reason_key": "reason_job_scam"
+    },
+    {
+      "id": "SIG_TELEGRAM_FUNNEL",
+      "category": "telegram_funnel",
+      "weight": 25,
+      "regex": "(t\\.me/|telegram|টে Boundaries|टेलीग्राम)",
+      "reason_key": "reason_telegram_link"
+    },
+    {
+      "id": "SIG_LOTTERY_PRIZE",
+      "category": "lottery",
+      "weight": 45,
+      "regex": "(won cash prize|lottery|lucky draw|crorepati|लॉटरी|পুরস্কাৰ)",
+      "reason_key": "reason_lottery"
+    },
+    {
+      "id": "SIG_PARCEL_DELIVERY_FEE",
+      "category": "courier",
+      "weight": 40,
+      "regex": "(indiapost|india post|parcel.*(redelivery|address|pay)|পাৰ্চেল|পেকেজ)",
+      "reason_key": "reason_parcel_trap"
+    },
+    {
+      "id": "SIG_CREDENTIAL_DEMAND",
+      "category": "credentials",
+      "weight": 50,
+      "regex": "(16-digit|cvv|atm pin|netbanking password|share.*otp|पिन|पासवर्ड|অ'টিপি)",
+      "reason_key": "reason_credential_harvest"
+    },
+    {
+      "id": "SIG_SUSPICIOUS_TLD",
+      "category": "suspicious_domain",
+      "weight": 35,
+      "regex": "\\.(top|xyz|buzz|fit|tk|ml|ga|cf|gq|icu|club|work|click|live)(\\/|\\?|$)",
+      "reason_key": "reason_suspicious_domain"
+    },
+    {
+      "id": "SIG_LINK_SHORTENER",
+      "category": "shortener",
+      "weight": 20,
+      "regex": "(bit\\.ly|tinyurl\\.com|is\\.gd|t\\.co|rb\\.gy|cutt\\.ly)",
+      "reason_key": "reason_link_shortener"
+    },
+    {
+      "id": "SIG_PSYCHOLOGICAL_URGENCY",
+      "category": "urgency",
+      "weight": 25,
+      "regex": "(immediately|within \\d+ hours?|blocked today|suspended today|urgent|तुरंत|आज ही|তৎক্ষণাৎ|আজিৰ ভিতৰত)",
+      "reason_key": "reason_urgency"
+    }
+  ]
+}

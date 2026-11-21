@@ -8,7 +8,7 @@
   <meta name="description" content="BaitCheck: Don't take the bait. A private, on-device scam detector for Indian users. Checks messages, links, emails, numbers, and QR codes.">
   <title>BaitCheck — Don't take the bait.</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css?v=2.6.0">
+  <link rel="stylesheet" href="styles.css?v=2.7.0">
 </head>
 <body>
   <!-- Accessible ARIA Live Announcer for screen readers -->
@@ -99,7 +99,7 @@
                 
                 <div class="input-header-row">
                   <label for="universalInput" class="input-main-label">
-                    Paste message, link, email, number or UPI
+                    Paste message, link, email, or phone number
                   </label>
                   <span id="detectedChip" class="detected-type-chip">Detected: Message</span>
                 </div>
@@ -109,7 +109,7 @@
                   class="universal-textarea" 
                   rows="4" 
                   data-i18n-ph="input_placeholder" 
-                  placeholder="Paste a message, link, email, phone number or UPI ID..."
+                  placeholder="Paste a message, link, email, or phone number..."
                   aria-label="Content to analyze"
                 ></textarea>
 
@@ -152,7 +152,6 @@
                 <button class="tab-tool" data-tool="email" role="tab" data-i18n="tool_email">Email</button>
                 <button class="tab-tool" data-tool="number" role="tab" data-i18n="tool_number">Number</button>
                 <button class="tab-tool" data-tool="website" role="tab" data-i18n="tool_website">Website</button>
-                <button class="tab-tool" data-tool="qr" role="tab" data-i18n="tool_qr">UPI / QR</button>
               </div>
             </div>
 
@@ -240,9 +239,9 @@
 
                 <!-- Inner Orbit Layer (Counter-Clockwise Middle Ring) -->
                 <div class="orbit-layer orbit-middle">
-                  <div class="orbit-node node-mid-right" title="QR & UPI Scanner">
+                  <div class="orbit-node node-mid-right" title="Payment Protection">
                     <div class="node-icon-box bg-cyan">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                     </div>
                   </div>
                   <div class="orbit-node node-mid-bottom" title="Phone Number Inspection">
@@ -314,16 +313,6 @@
               <div class="tool-quick-info">
                 <div class="tool-quick-title" data-i18n="card_tool_website">Website Checker</div>
                 <div class="tool-quick-desc" data-i18n="card_tool_website_desc">Check whether an online shop or website is legitimate.</div>
-              </div>
-            </button>
-
-            <button class="tool-quick-card" data-tool-target="qr" type="button">
-              <div class="tool-quick-icon-box cat-qr">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              </div>
-              <div class="tool-quick-info">
-                <div class="tool-quick-title" data-i18n="card_tool_qr">QR Checker</div>
-                <div class="tool-quick-desc" data-i18n="card_tool_qr_desc">Reveal where a QR code actually sends you.</div>
               </div>
             </button>
           </div>

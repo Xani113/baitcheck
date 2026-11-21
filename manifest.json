@@ -1,21 +1,21 @@
 {
-  "name": "BaitCheck — Scam Message Detector",
+  "name": "BaitCheck — Don't take the bait.",
   "short_name": "BaitCheck",
-  "description": "Don't take the bait. Check SMS, WhatsApp, and links for scams in seconds, 100% offline.",
+  "description": "Don't take the bait. Check messages, links, emails, numbers, and QR codes in seconds, 100% offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0B111E",
-  "theme_color": "#0E4F6E",
+  "background_color": "#F6F3EA",
+  "theme_color": "#2B3A8C",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' width='192' height='192'%3E%3Crect width='192' height='192' rx='42' fill='%230e4f6e'/%3E%3Cpath d='M96 32 C120 32, 148 44, 148 78 C148 122, 96 160, 96 160 C96 160, 44 122, 44 78 C44 44, 72 32, 96 32 Z' fill='none' stroke='%2338bdf8' stroke-width='12' stroke-linejoin='round'/%3E%3Cpath d='M74 96 L90 112 L122 80' fill='none' stroke='%2322c55e' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' width='192' height='192'%3E%3Crect width='192' height='192' rx='42' fill='%232B3A8C'/%3E%3Cpath d='M96 32 C120 32, 148 44, 148 78 C148 122, 96 160, 96 160 C96 160, 44 122, 44 78 C44 44, 72 32, 96 32 Z' fill='none' stroke='%23E8EAF7' stroke-width='12' stroke-linejoin='round'/%3E%3Cpath d='M80 92 C80 102, 90 110, 100 110 C108 110, 114 104, 114 96 L114 74' fill='none' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3Ccircle cx='114' cy='74' r='4' fill='%23FFFFFF'/%3E%3C/svg%3E",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Crect width='512' height='512' rx='112' fill='%230e4f6e'/%3E%3Cpath d='M256 86 C320 86, 396 118, 396 208 C396 326, 256 426, 256 426 C256 426, 116 326, 116 208 C116 118, 192 86, 256 86 Z' fill='none' stroke='%2338bdf8' stroke-width='32' stroke-linejoin='round'/%3E%3Cpath d='M196 256 L240 300 L324 216' fill='none' stroke='%2322c55e' stroke-width='36' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Crect width='512' height='512' rx='112' fill='%232B3A8C'/%3E%3Cpath d='M256 86 C320 86, 396 118, 396 208 C396 326, 256 426, 256 426 C256 426, 116 326, 116 208 C116 118, 192 86, 256 86 Z' fill='none' stroke='%23E8EAF7' stroke-width='32' stroke-linejoin='round'/%3E%3Cpath d='M214 246 C214 272, 240 294, 266 294 C288 294, 304 278, 304 256 L304 198' fill='none' stroke='%23FFFFFF' stroke-width='32' stroke-linecap='round'/%3E%3Ccircle cx='304' cy='198' r='10' fill='%23FFFFFF'/%3E%3C/svg%3E",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }

@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-11-21",
+  "brands": [
+    { "name": "State Bank of India", "slug": "sbi", "keywords": ["sbi", "state bank"], "officialDomains": ["sbi.co.in", "onlinesbi.sbi", "onlinesbi.com"] },
+    { "name": "HDFC Bank", "slug": "hdfc", "keywords": ["hdfc", "hdfc bank"], "officialDomains": ["hdfcbank.com", "hdfc.com", "hdfcbank.net"] },
+    { "name": "ICICI Bank", "slug": "icici", "keywords": ["icici", "icicibank"], "officialDomains": ["icicibank.com"] },
+    { "name": "Axis Bank", "slug": "axis", "keywords": ["axis", "axis bank"], "officialDomains": ["axisbank.com"] },
+    { "name": "Punjab National Bank", "slug": "pnb", "keywords": ["pnb", "punjab national"], "officialDomains": ["pnbindia.in"] },
+    { "name": "Bank of Baroda", "slug": "bob", "keywords": ["bob", "bank of baroda"], "officialDomains": ["bankofbaroda.in"] },
+    { "name": "Canara Bank", "slug": "canara", "keywords": ["canara", "canara bank"], "officialDomains": ["canarabank.com"] },
+    { "name": "Paytm", "slug": "paytm", "keywords": ["paytm"], "officialDomains": ["paytm.com", "paytmbank.com"] },
+    { "name": "PhonePe", "slug": "phonepe", "keywords": ["phonepe"], "officialDomains": ["phonepe.com"] },
+    { "name": "Google Pay", "slug": "gpay", "keywords": ["gpay", "google pay"], "officialDomains": ["pay.google.com", "google.com"] },
+    { "name": "Amazon India", "slug": "amazon", "keywords": ["amazon", "amazon pay"], "officialDomains": ["amazon.in", "amazon.com"] },
+    { "name": "Flipkart", "slug": "flipkart", "keywords": ["flipkart"], "officialDomains": ["flipkart.com"] },
+    { "name": "India Post", "slug": "indiapost", "keywords": ["india post", "indiapost", "speed post", "dak"], "officialDomains": ["indiapost.gov.in", "ippbonline.com"] },
+    { "name": "UIDAI / Aadhaar", "slug": "uidai", "keywords": ["uidai", "aadhaar", "aadhar"], "officialDomains": ["uidai.gov.in", "myaadhaar.uidai.gov.in"] },
+    { "name": "Income Tax Department", "slug": "incometax", "keywords": ["income tax", "incometax", "itr"], "officialDomains": ["incometax.gov.in"] },
+    { "name": "IRCTC", "slug": "irctc", "keywords": ["irctc", "railway"], "officialDomains": ["irctc.co.in", "indianrailways.gov.in"] },
+    { "name": "Reliance Jio", "slug": "jio", "keywords": ["jio", "reliance jio"], "officialDomains": ["jio.com"] },
+    { "name": "Bharti Airtel", "slug": "airtel", "keywords": ["airtel", "bharti airtel"], "officialDomains": ["airtel.in"] },
+    { "name": "Electricity Board", "slug": "electricity", "keywords": ["electricity", "power", "bijli", "bescom", "tneb", "mahadiscom", "uppcl", "dhbvn"], "officialDomains": [] }
+  ]
+}

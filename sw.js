@@ -3,16 +3,32 @@
  * Fully offline asset caching. Zero external network egress.
  */
 
-const CACHE_NAME = 'baitcheck-v1.0.0';
+const CACHE_NAME = 'baitcheck-v2.1.0';
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './styles.css',
-  './app.js',
-  './engine.js',
-  './rules.json',
   './manifest.json',
+  './tests.html',
+  './test-inputs.json',
+  './js/app.js',
+  './js/router.js',
+  './js/pattern-matcher.js',
+  './js/engine-message.js',
+  './js/engine-link.js',
+  './js/engine-email.js',
+  './js/engine-number.js',
+  './js/engine-qr.js',
+  './js/engine-website.js',
+  './data/rules.json',
+  './data/known-scams.json',
+  './data/brands.json',
+  './data/tlds.json',
+  './data/shorteners.json',
+  './data/disposable-domains.json',
+  './data/scams.json',
+  './data/guides.json',
   './i18n/en.json',
   './i18n/hi.json',
   './i18n/as.json'
@@ -21,7 +37,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[ServiceWorker] Pre-caching BaitCheck offline shell');
+      console.log('[ServiceWorker] Pre-caching BaitCheck offline assets');
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );
@@ -43,7 +59,6 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests for local origin
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
@@ -52,7 +67,6 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
       return fetch(event.request).then((networkResponse) => {
-        // Cache dynamic local requests if valid
         if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
           return networkResponse;
         }
@@ -63,7 +77,6 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       });
     }).catch(() => {
-      // Fallback to cached index.html for navigation requests offline
       if (event.request.mode === 'navigate') {
         return caches.match('./index.html');
       }

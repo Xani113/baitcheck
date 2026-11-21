@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-11-21",
+  "guides": [
+    {
+      "id": "shared-otp",
+      "title": "What to do if you accidentally shared an OTP or password",
+      "readTime": "3 min read",
+      "summary": "Immediate emergency checklist to minimize financial and account loss if an OTP or credentials were compromised.",
+      "steps": [
+        "Call your bank's emergency debit/credit card block helpline immediately.",
+        "Dial 1930 immediately to register a complaint with the National Cyber Crime Reporting Portal.",
+        "Change your NetBanking and UPI PINs from a secure device.",
+        "Log out of all active sessions in your Google, Apple, and banking accounts."
+      ]
+    },
+    {
+      "id": "fake-shops",
+      "title": "How to spot a fake online shopping website in 60 seconds",
+      "readTime": "4 min read",
+      "summary": "Six tell-tale signs that an online store advertised on Instagram or Facebook is a counterfeit scam.",
+      "steps": [
+        "Check prices: Premium electronics or apparel sold at 80% discount are almost always scams.",
+        "Payment check: If the site disables Cash on Delivery and only accepts UPI transfers to personal IDs, exit.",
+        "Domain inspection: Look for misspelled brand names and unusual extensions (.xyz, .shop, .top).",
+        "Contact verification: Check if a physical address, telephone number, and valid GSTIN are provided."
+      ]
+    },
+    {
+      "id": "safe-upi",
+      "title": "Safe UPI Habits: Why receiving money NEVER requires a PIN",
+      "readTime": "3 min read",
+      "summary": "The single most critical rule of digital payments that prevents 90% of marketplace and refund fraud.",
+      "steps": [
+        "Understand UPI architecture: PIN is required ONLY to debit your account, NEVER to credit it.",
+        "Decline collect requests: If you receive a popup requesting your PIN to get a refund or cashback, decline immediately.",
+        "Do not scan QR codes to receive money: QR codes are only for paying, never for accepting funds."
+      ]
+    },
+    {
+      "id": "verify-caller",
+      "title": "Verifying unexpected callers claiming to be from banks or police",
+      "readTime": "4 min read",
+      "summary": "How to handle aggressive, threatening, or urgent phone calls without panicking.",
+      "steps": [
+        "Never accept claims of 'Digital Arrest' — law enforcement in India never arrests or interrogates via phone.",
+        "Ask for their full name, designation, and official landline number, then hang up.",
+        "Independently dial the official customer care number listed on the back of your bank debit card.",
+        "Never download remote screen-sharing tools like AnyDesk or QuickSupport on instructions from a caller."
+      ]
+    },
+    {
+      "id": "secure-accounts",
+      "title": "How to secure your WhatsApp, Gmail, and banking apps",
+      "readTime": "5 min read",
+      "summary": "Simple, robust settings to protect your personal identity and messaging accounts from account takeovers.",
+      "steps": [
+        "Enable Two-Step Verification (2FA) with a 6-digit PIN on WhatsApp.",
+        "Enable passkeys or authenticator apps on your Google and Apple accounts.",
+        "Set an alphanumeric screen lock on your smartphone and disable notification previews on the lock screen.",
+        "Regularly review 'Linked Devices' in WhatsApp settings to disconnect unauthorized sessions."
+      ]
+    },
+    {
+      "id": "protect-elders",
+      "title": "Protecting elderly family members from digital fraud",
+      "readTime": "4 min read",
+      "summary": "Practical steps you can set up on parents' and grandparents' phones to protect them from high-pressure scammers.",
+      "steps": [
+        "Install BaitCheck on their home screen for 1-tap scam checks before tapping unfamiliar links.",
+        "Set daily UPI transfer limits on their bank accounts to limit potential exposure.",
+        "Agree on a family safe-word for emergency money requests.",
+        "Encourage an open, no-shame environment: tell them never to act on urgent alerts without checking with family first."
+      ]
+    }
+  ]
+}

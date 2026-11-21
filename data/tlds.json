@@ -1,0 +1,14 @@
+{
+  "suspiciousTlds": [
+    "top", "xyz", "club", "work", "vip", "icu", "tk", "ml", "ga", "cf", "gq",
+    "buzz", "rest", "cam", "sbs", "fit", "monster", "cfd", "online", "site",
+    "click", "link", "shop", "live", "fun", "download", "stream", "bid", "loan",
+    "win", "gq", "racing", "review", "accountant", "date", "faith", "cricket"
+  ],
+  "officialGovTlds": [
+    "gov.in", "nic.in", "ac.in", "edu.in", "mil.in", "res.in"
+  ],
+  "standardTrustedTlds": [
+    "in", "co.in", "net.in", "org.in", "com", "org", "net", "edu", "gov"
+  ]
+}

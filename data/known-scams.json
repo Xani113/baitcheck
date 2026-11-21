@@ -1,0 +1,447 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-11-21",
+  "templates": [
+    {
+      "id": "TPL_KYC_01",
+      "category": "Fake KYC / Bank Freeze",
+      "language": "en",
+      "text": "Dear customer your SBI bank account has been suspended today due to pending KYC update. Click here to verify your PAN card immediately <URL>",
+      "keyPhrases": ["sbi bank account", "suspended today", "pending kyc", "verify your pan", "click here"],
+      "redFlags": ["Bank suspension threat", "Urgent deadline", "External verification link"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_KYC_02",
+      "category": "Fake KYC / Bank Freeze",
+      "language": "hi",
+      "text": "प्रिय ग्राहक आपका बैंक खाता आज ब्लॉक कर दिया जाएगा। तुरंत अपना पैन कार्ड और आधार अपडेट करें वरना सेवाएं बंद हो जाएंगी <URL>",
+      "keyPhrases": ["बैंक खाता", "ब्लॉक", "तुरंत अपना पैन", "आधार अपडेट", "सेवाएं बंद"],
+      "redFlags": ["खाता ब्लॉक की धमकी", "जल्दबाजी का दबाव", "अनाधिकृत लिंक"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_KYC_03",
+      "category": "Fake KYC / Bank Freeze",
+      "language": "hinglish",
+      "text": "Dear customer aapka bank account deactivate hone wala hai. Aaj hi KYC update kare nahi to account permanent block ho jayega <URL>",
+      "keyPhrases": ["bank account deactivate", "kyc update kare", "account permanent block"],
+      "redFlags": ["Deactivation fear", "Coercive deadline", "Phishing link"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_KYC_04",
+      "category": "Fake KYC / Bank Freeze",
+      "language": "as",
+      "text": "প্ৰিয় গ্ৰাহক আপোনাৰ বেংক একাউণ্ট ব্লক কৰা হৈছে। সেৱা অব্যাহত ৰাখিবলৈ অতি সোনকালে পেন কাৰ্ড আপডেট কৰক <URL>",
+      "keyPhrases": ["বেংক একাউণ্ট ব্লক", "অতি সোনকালে", "পেন কাৰ্ড আপডেট"],
+      "redFlags": ["একাউণ্ট ব্লকৰ ভুৱা সতৰ্কবাণী", "অজ্ঞাত লিংক"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_KYC_05",
+      "category": "Fake KYC / Bank Freeze",
+      "language": "en",
+      "text": "Urgent Alert: Your HDFC NetBanking access is disabled. Please verify your mobile number and KYC documents within 24 hours at <URL>",
+      "keyPhrases": ["netbanking access disabled", "verify mobile number", "kyc documents within 24 hours"],
+      "redFlags": ["Access disabled scare", "24 hour timer", "Fake banking URL"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_ELEC_01",
+      "category": "Electricity Bill Disconnection",
+      "language": "en",
+      "text": "Dear consumer electricity power will be disconnected tonight at 9:30 PM from power office because your previous month bill was not updated. Please immediately contact electricity officer at <PHONE>",
+      "keyPhrases": ["electricity power disconnected", "tonight at 9:30 pm", "bill not updated", "contact electricity officer"],
+      "redFlags": ["Tonight disconnection threat", "Personal officer phone number", "No official bill details"],
+      "libraryLink": "#/known-scams?id=electricity"
+    },
+    {
+      "id": "TPL_ELEC_02",
+      "category": "Electricity Bill Disconnection",
+      "language": "hi",
+      "text": "प्रिय उपभोक्ता आपकी बिजली आज रात 9:30 बजे काट दी जाएगी क्योंकि आपका पिछला बिल जमा नहीं हुआ है। तुरंत बिजली अधिकारी से संपर्क करें <PHONE>",
+      "keyPhrases": ["बिजली आज रात", "काट दी जाएगी", "बिल जमा नहीं हुआ", "बिजली अधिकारी"],
+      "redFlags": ["रात में लाइन काटने की धमकी", "व्यक्तिगत मोबाइल नंबर"],
+      "libraryLink": "#/known-scams?id=electricity"
+    },
+    {
+      "id": "TPL_ELEC_03",
+      "category": "Electricity Bill Disconnection",
+      "language": "hinglish",
+      "text": "Dear consumer aapki bijli aaj raat 9:30 baje cut jayegi previous month bill unpaid hai. Turant electricity officer ko call kare <PHONE>",
+      "keyPhrases": ["bijli aaj raat", "cut jayegi", "bill unpaid", "officer ko call kare"],
+      "redFlags": ["Power cut scare", "Personal WhatsApp/call trap"],
+      "libraryLink": "#/known-scams?id=electricity"
+    },
+    {
+      "id": "TPL_ELEC_04",
+      "category": "Electricity Bill Disconnection",
+      "language": "as",
+      "text": "প্ৰিয় গ্ৰাহক আপোনাৰ বিদ্যুৎ সংযোগ আজি নিশা ৯:৩০ বজাত কৰ্তন কৰা হ'ব কাৰণ বিল পৰিশোধ হোৱা নাই। যোগাযোগ কৰক <PHONE>",
+      "keyPhrases": ["বিদ্যুৎ সংযোগ", "নিশা ৯:৩০ বজাত কৰ্তন", "বিল পৰিশোধ হোৱা নাই"],
+      "redFlags": ["বিদ্যুৎ কৰ্তনৰ ভুৱা ভাবুকি", "ব্যক্তিগত ফোন নম্বৰ"],
+      "libraryLink": "#/known-scams?id=electricity"
+    },
+    {
+      "id": "TPL_JOB_01",
+      "category": "Fake Job / Part-Time Task",
+      "language": "en",
+      "text": "Earn Rs. 2000 to 5000 daily part time work from home simply by liking YouTube videos and rating hotels on Google Maps. Contact HR manager on Telegram <URL>",
+      "keyPhrases": ["earn rs 2000 to 5000", "daily part time", "liking youtube videos", "telegram hr manager"],
+      "redFlags": ["Unrealistic high pay for trivial tasks", "Telegram redirect", "No real interview or contract"],
+      "libraryLink": "#/known-scams?id=job"
+    },
+    {
+      "id": "TPL_JOB_02",
+      "category": "Fake Job / Part-Time Task",
+      "language": "hi",
+      "text": "घर बैठे रोजाना 2000 से 5000 रुपये कमाएं। सिर्फ यूट्यूब वीडियो लाइक करें और स्क्रीनशॉट भेजें। तुरंत टेलीग्राम पर संपर्क करें <URL>",
+      "keyPhrases": ["रोजाना 2000 से 5000", "यूट्यूब वीडियो लाइक", "टेलीग्राम पर संपर्क"],
+      "redFlags": ["असंभव कमाई का झांसा", "टेलीग्राम पर ट्रांसफर"],
+      "libraryLink": "#/known-scams?id=job"
+    },
+    {
+      "id": "TPL_JOB_03",
+      "category": "Fake Job / Part-Time Task",
+      "language": "hinglish",
+      "text": "Part time work from home opportunity. Daily 30 minutes kaam karke 3000 earn kare YouTube video like karke. Join our official Telegram channel <URL>",
+      "keyPhrases": ["part time work from home", "daily 30 minutes", "earn 3000", "youtube video like", "telegram channel"],
+      "redFlags": ["Easy money trap", "Telegram investment funnel"],
+      "libraryLink": "#/known-scams?id=job"
+    },
+    {
+      "id": "TPL_JOB_04",
+      "category": "Fake Job / Part-Time Task",
+      "language": "as",
+      "text": "ঘৰত বহি দৈনিক ২০০০-৫০০০ টকা উপাৰ্জন কৰক। কেৱল ইউটিউব ভিডিঅ' লাইক কৰক। যোগাযোগ কৰক টেলিগ্ৰামত <URL>",
+      "keyPhrases": ["দৈনিক ২০০০-৫০০০ টকা", "ইউটিউব ভিডিঅ' লাইক", "টেলিগ্ৰামত"],
+      "redFlags": ["সহজ ধনৰ প্ৰলোভন", "টেলিগ্ৰাম জালিয়াতি"],
+      "libraryLink": "#/known-scams?id=job"
+    },
+    {
+      "id": "TPL_ARREST_01",
+      "category": "Digital Arrest / Fake Police",
+      "language": "en",
+      "text": "Official Notice from Mumbai Cyber Crime Branch and CBI: A parcel in your name containing illegal contraband has been seized at customs. A digital arrest warrant has been issued. Join Skype video interrogation immediately.",
+      "keyPhrases": ["mumbai cyber crime", "cbi", "illegal contraband", "digital arrest warrant", "skype video interrogation"],
+      "redFlags": ["Digital arrest is completely fictitious", "Law enforcement never does Skype/WhatsApp calls", "Panic coercion"],
+      "libraryLink": "#/known-scams?id=digital-arrest"
+    },
+    {
+      "id": "TPL_ARREST_02",
+      "category": "Digital Arrest / Fake Police",
+      "language": "hi",
+      "text": "सीबीआई और दिल्ली पुलिस सूचना: आपके नाम से एक पार्सल जब्त हुआ है जिसमें नशीली दवाएं पाई गई हैं। आपके खिलाफ डिजिटल अरेस्ट वारंट जारी हुआ है। तुरंत संपर्क करें।",
+      "keyPhrases": ["सीबीआई और दिल्ली पुलिस", "पार्सल जब्त", "नशीली दवाएं", "डिजिटल अरेस्ट वारंट"],
+      "redFlags": ["डिजिटल अरेस्ट की झूठी धमकी", "कानूनी कार्रवाई का डर"],
+      "libraryLink": "#/known-scams?id=digital-arrest"
+    },
+    {
+      "id": "TPL_ARREST_03",
+      "category": "Digital Arrest / Fake Police",
+      "language": "hinglish",
+      "text": "Police notice: Aapke Aadhaar card se illegal money laundering aur customs parcel pakda gaya hai. CBI digital arrest order jari hua hai turant line pe bane rahe.",
+      "keyPhrases": ["aadhaar card", "money laundering", "customs parcel", "cbi digital arrest"],
+      "redFlags": ["Fake investigation fear", "Demands keeping user isolated on phone"],
+      "libraryLink": "#/known-scams?id=digital-arrest"
+    },
+    {
+      "id": "TPL_PARCEL_01",
+      "category": "Parcel / Customs / India Post",
+      "language": "en",
+      "text": "India Post alert: Your package could not be delivered due to incomplete street address. Please update your delivery details within 12 hours or item will be returned <URL>",
+      "keyPhrases": ["india post alert", "package could not be delivered", "incomplete street address", "update delivery details"],
+      "redFlags": ["Fake parcel delivery failure", "Small token fee link to harvest card data"],
+      "libraryLink": "#/known-scams?id=parcel"
+    },
+    {
+      "id": "TPL_PARCEL_02",
+      "category": "Parcel / Customs / India Post",
+      "language": "hi",
+      "text": "भारतीय डाक सूचना: आपका पार्सल गलत पते के कारण रोका गया है। डिलीवरी के लिए 24 घंटे के अंदर पता अपडेट करें <URL>",
+      "keyPhrases": ["भारतीय डाक", "पार्सल गलत पते", "पता अपडेट करें"],
+      "redFlags": ["फर्जी डाकघर सूचना", "अज्ञात फिशिंग लिंक"],
+      "libraryLink": "#/known-scams?id=parcel"
+    },
+    {
+      "id": "TPL_PARCEL_03",
+      "category": "Parcel / Customs / India Post",
+      "language": "as",
+      "text": "ইণ্ডিয়া পোষ্ট সতৰ্কতা: ঠিকনা অসম্পূৰ্ণ হোৱাৰ বাবে আপোনাৰ পাৰ্চেলটো ডেলিভাৰী কৰিব পৰা নগ'ল। ঠিকনা আপডেট কৰিবলৈ লিংকত ক্লিক কৰক <URL>",
+      "keyPhrases": ["ইণ্ডিয়া পোষ্ট", "পাৰ্চেলটো ডেলিভাৰী", "ঠিকনা আপডেট কৰিবলৈ"],
+      "redFlags": ["ডাক বিভাগৰ ভুৱা বাৰ্তা", "কাৰ্ড তথ্য চুৰিৰ ফাঁদ"],
+      "libraryLink": "#/known-scams?id=parcel"
+    },
+    {
+      "id": "TPL_LOTTERY_01",
+      "category": "Lottery / KBC Lucky Draw",
+      "language": "en",
+      "text": "Congratulations! Your mobile number won Rs. 25,00,000 in KBC All India Lucky Draw. To claim your lottery prize contact WhatsApp manager immediately <PHONE>",
+      "keyPhrases": ["congratulations", "won rs 2500000", "kbc all india lucky draw", "claim lottery prize", "whatsapp manager"],
+      "redFlags": ["Lottery you never entered", "Advance fee processing demand", "WhatsApp contact"],
+      "libraryLink": "#/known-scams?id=lottery"
+    },
+    {
+      "id": "TPL_LOTTERY_02",
+      "category": "Lottery / KBC Lucky Draw",
+      "language": "hi",
+      "text": "बधाई हो! आपके मोबाइल नंबर ने केबीसी 25 लाख की लॉटरी जीती है। अपनी इनामी राशि बैंक खाते में प्राप्त करने के लिए तुरंत संपर्क करें <PHONE>",
+      "keyPhrases": ["बधाई हो", "केबीसी 25 लाख", "लॉटरी जीती", "इनामी राशि"],
+      "redFlags": ["फर्जी लॉटरी का लालच", "प्रोसेसिंग फीस की मांग"],
+      "libraryLink": "#/known-scams?id=lottery"
+    },
+    {
+      "id": "TPL_LOTTERY_03",
+      "category": "Lottery / KBC Lucky Draw",
+      "language": "as",
+      "text": "অভিনন্দন! আপোনাৰ চিম কাৰ্ড নম্বৰে কেবিচি লটাৰীত ২৫ লাখ টকা লাভ কৰিছে। পুৰস্কাৰ লাভ কৰিবলৈ যোগাযোগ কৰক <PHONE>",
+      "keyPhrases": ["অভিনন্দন", "কেবিচি লটাৰীত ২৫ লাখ", "পুৰস্কাৰ লাভ কৰিবলৈ"],
+      "redFlags": ["ভুৱা লটাৰী পুৰস্কাৰ", "অগ্রিম মাচুলৰ ফাঁদ"],
+      "libraryLink": "#/known-scams?id=lottery"
+    },
+    {
+      "id": "TPL_UPI_01",
+      "category": "UPI Collect / Refund Scam",
+      "language": "en",
+      "text": "Merchant refund of Rs. 3500 approved. Click the link and enter your 4-digit or 6-digit UPI PIN on PhonePe to receive money directly into your account <URL>",
+      "keyPhrases": ["merchant refund", "enter your 4-digit or 6-digit upi pin", "to receive money directly"],
+      "redFlags": ["Claiming you enter PIN to receive money (PIN is ONLY for sending)", "Collect request spoof"],
+      "libraryLink": "#/known-scams?id=upi"
+    },
+    {
+      "id": "TPL_UPI_02",
+      "category": "UPI Collect / Refund Scam",
+      "language": "hi",
+      "text": "आपके खाते में 4000 रुपये रिफंड भेजा गया है। पैसे स्वीकार करने के लिए अपना यूपीआई पिन डालें और कन्फर्म करें <URL>",
+      "keyPhrases": ["रिफंड भेजा गया", "पैसे स्वीकार करने के लिए", "अपना यूपीआई पिन डालें"],
+      "redFlags": ["पैसे लेने के लिए पिन डालने का झूठ", "खाते से पैसे कटने का जाल"],
+      "libraryLink": "#/known-scams?id=upi"
+    },
+    {
+      "id": "TPL_UPI_03",
+      "category": "UPI Collect / Refund Scam",
+      "language": "hinglish",
+      "text": "Sir aapka cashback Rs 1999 aaya hai. GPay me jaake Pay button pe click karke PIN enter karo paise receive ho jayenge.",
+      "keyPhrases": ["cashback aaya hai", "pay button pe click karke", "pin enter karo paise receive"],
+      "redFlags": ["Telling victim to tap Pay and enter PIN to receive cashback"],
+      "libraryLink": "#/known-scams?id=upi"
+    },
+    {
+      "id": "TPL_LOAN_01",
+      "category": "Predatory Loan App",
+      "language": "en",
+      "text": "Instant personal loan of Rs 50,000 approved without CIBIL score or documents. Download quick loan APK now and get cash in 5 minutes <URL>",
+      "keyPhrases": ["instant personal loan", "without cibil score", "download quick loan apk", "cash in 5 minutes"],
+      "redFlags": ["Untrusted APK download", "Permission harvesting for contact blackmail", "No credit check"],
+      "libraryLink": "#/known-scams?id=loan"
+    },
+    {
+      "id": "TPL_LOAN_02",
+      "category": "Predatory Loan App",
+      "language": "hi",
+      "text": "बिना किसी दस्तावेज के 50,000 का तुरंत लोन मंजूर। 5 मिनट में पैसा पाने के लिए यह लोन ऐप डाउनलोड करें <URL>",
+      "keyPhrases": ["बिना किसी दस्तावेज", "तुरंत लोन मंजूर", "लोन ऐप डाउनलोड"],
+      "redFlags": ["अवैध लोन ऐप", "कॉन्टैक्ट लिस्ट चुराकर ब्लैकमेलिंग"],
+      "libraryLink": "#/known-scams?id=loan"
+    },
+    {
+      "id": "TPL_LOAN_03",
+      "category": "Predatory Loan App",
+      "language": "as",
+      "text": "কোনো নথি-পত্ৰ অবিহনে ৫০,০০০ টকাৰ জৰুৰী ঋণ লাভ কৰক। এতিয়াই এপ ডাউনলোড কৰক <URL>",
+      "keyPhrases": ["কোনো নথি-পত্ৰ অবিহনে", "জৰুৰী ঋণ লাভ", "এপ ডাউনলোড"],
+      "redFlags": ["জাল ঋণ এপ", "ব্লেকমেইলিংৰ ভাবুকি"],
+      "libraryLink": "#/known-scams?id=loan"
+    },
+    {
+      "id": "TPL_SEX_01",
+      "category": "Video Call Sextortion",
+      "language": "en",
+      "text": "I have recorded your private nude video call. If you do not transfer Rs. 20,000 immediately, I will upload the video to YouTube, Facebook, and send it to all your contacts.",
+      "keyPhrases": ["recorded your private video", "transfer rs 20000 immediately", "upload to youtube", "send to all contacts"],
+      "redFlags": ["Extortion via fake recording", "Demand for immediate ransom"],
+      "libraryLink": "#/known-scams?id=sextortion"
+    },
+    {
+      "id": "TPL_SEX_02",
+      "category": "Video Call Sextortion",
+      "language": "hi",
+      "text": "मेरे पास आपका अश्लील वीडियो कॉल रिकॉर्डिंग है। अगर तुरंत 25,000 रुपये नहीं भेजे तो यह वीडियो आपके परिवार और दोस्तों को भेज दूंगा।",
+      "keyPhrases": ["अश्लील वीडियो कॉल", "तुरंत रुपये नहीं भेजे", "परिवार और दोस्तों को भेज दूंगा"],
+      "redFlags": ["ब्लैकमेल और फिरौती की धमकी"],
+      "libraryLink": "#/known-scams?id=sextortion"
+    },
+    {
+      "id": "TPL_INVEST_01",
+      "category": "Stock & Investment Fraud",
+      "language": "en",
+      "text": "Join our VIP institutional stock trading WhatsApp group. Our SEBI registered analyst provides guaranteed 500% profit weekly. Click to join free <URL>",
+      "keyPhrases": ["vip institutional stock trading", "guaranteed 500% profit weekly", "click to join free"],
+      "redFlags": ["Guaranteed returns promise (illegal in securities)", "Private chat group funnel", "Bogus institutional accounts"],
+      "libraryLink": "#/known-scams?id=investment"
+    },
+    {
+      "id": "TPL_INVEST_02",
+      "category": "Stock & Investment Fraud",
+      "language": "hi",
+      "text": "शेयर बाजार में रोजाना पक्का 200% मुनाफा। हमारे वीआईपी व्हाट्सएप ग्रुप से जुड़ें और 10,000 लगाकर लाखों कमाएं <URL>",
+      "keyPhrases": ["शेयर बाजार में रोजाना", "पक्का मुनाफा", "वीआईपी व्हाट्सएप ग्रुप"],
+      "redFlags": ["असंभव मुनाफे का लालच", "फर्जी ट्रेडिंग प्लेटफॉर्म"],
+      "libraryLink": "#/known-scams?id=investment"
+    },
+    {
+      "id": "TPL_CARE_01",
+      "category": "Fake Customer Care",
+      "language": "en",
+      "text": "Customer Support: For immediate assistance with failed transaction or refund, call our 24x7 toll-free helpline number <PHONE>",
+      "keyPhrases": ["customer support", "failed transaction or refund", "call our 24x7 helpline"],
+      "redFlags": ["Unofficial search-ad number", "Telling user to install remote desktop app"],
+      "libraryLink": "#/known-scams?id=customer-care"
+    },
+    {
+      "id": "TPL_CARE_02",
+      "category": "Fake Customer Care",
+      "language": "hi",
+      "text": "ग्राहक सेवा सहायता: खाते से कटे पैसे वापस पाने के लिए तुरंत हमारे कस्टमर केयर नंबर पर कॉल करें <PHONE>",
+      "keyPhrases": ["ग्राहक सेवा सहायता", "कटे पैसे वापस पाने", "कस्टमर केयर नंबर"],
+      "redFlags": ["फर्जी हेल्पलाइन नंबर", "रिमोट एक्सेस टूल की मांग"],
+      "libraryLink": "#/known-scams?id=customer-care"
+    },
+    {
+      "id": "TPL_MARKET_01",
+      "category": "Marketplace QR Scam",
+      "language": "en",
+      "text": "I want to buy your furniture on OLX. I am sending an advance payment QR code. Scan this QR code on PhonePe and enter PIN to collect Rs. 8500.",
+      "keyPhrases": ["buy your furniture on olx", "advance payment qr code", "scan this qr code", "enter pin to collect"],
+      "redFlags": ["Sending a QR code to 'pay' the seller", "Entering PIN empties seller's account"],
+      "libraryLink": "#/known-scams?id=marketplace-qr"
+    },
+    {
+      "id": "TPL_MARKET_02",
+      "category": "Marketplace QR Scam",
+      "language": "hi",
+      "text": "मैं आपका सामान खरीदने के लिए एडवांस भेज रहा हूँ। यह क्यूआर कोड स्कैन करें और पिन डालें, पैसे तुरंत आपके बैंक में आ जाएंगे।",
+      "keyPhrases": ["एडवांस भेज रहा हूँ", "क्यूआर कोड स्कैन करें", "पिन डालें", "पैसे तुरंत आपके बैंक में"],
+      "redFlags": ["क्यूआर कोड से पैसे आने का झूठा दावा", "विक्रेता से पैसे ऐंठने की चाल"],
+      "libraryLink": "#/known-scams?id=marketplace-qr"
+    },
+    {
+      "id": "TPL_SIM_01",
+      "category": "SIM Expiry / 5G Upgrade",
+      "language": "en",
+      "text": "Jio / Airtel Alert: Your SIM card will be deactivated within 12 hours due to pending 5G verification. Send SMS 'SIMREQ' to <PHONE> to avoid disconnection.",
+      "keyPhrases": ["sim card will be deactivated", "within 12 hours", "pending 5g verification", "avoid disconnection"],
+      "redFlags": ["SIM deactivation scare", "Attempt to trigger SIM swap / eSIM transfer"],
+      "libraryLink": "#/known-scams?id=sim-swap"
+    },
+    {
+      "id": "TPL_SIM_02",
+      "category": "SIM Expiry / 5G Upgrade",
+      "language": "hi",
+      "text": "एयरटेल/जियो अलर्ट: 5जी अपग्रेड अधूरा होने के कारण आपका सिम कार्ड आज बंद हो जाएगा। सिम चालू रखने के लिए तुरंत कॉल करें <PHONE>",
+      "keyPhrases": ["5जी अपग्रेड अधूरा", "सिम कार्ड आज बंद", "सिम चालू रखने के लिए"],
+      "redFlags": ["सिम स्वैप जालसाजी", "ओटीपी हड़पने की साजिश"],
+      "libraryLink": "#/known-scams?id=sim-swap"
+    },
+    {
+      "id": "TPL_CHALLAN_01",
+      "category": "Fake E-Challan",
+      "language": "en",
+      "text": "Traffic Police E-Challan: A pending violation fine of Rs. 1500 is registered against your vehicle. Pay fine within 24 hours to avoid court summons <URL>",
+      "keyPhrases": ["traffic police e-challan", "pending violation fine", "pay fine within 24 hours", "court summons"],
+      "redFlags": ["Fake court summons pressure", "Phishing link asking for card details instead of echallan.parivahan.gov.in"],
+      "libraryLink": "#/known-scams?id=echallan"
+    },
+    {
+      "id": "TPL_CHALLAN_02",
+      "category": "Fake E-Challan",
+      "language": "hi",
+      "text": "यातायात पुलिस ई-चालान: आपके वाहन पर 2000 रुपये का चालान लंबित है। कोर्ट चालान से बचने के लिए तुरंत भुगतान करें <URL>",
+      "keyPhrases": ["यातायात पुलिस ई-चालान", "चालान लंबित", "कोर्ट चालान से बचने", "तुरंत भुगतान"],
+      "redFlags": ["फर्जी ई-चालान पोर्टल", "कार्ड विवरण चुराने का प्रयास"],
+      "libraryLink": "#/known-scams?id=echallan"
+    },
+    {
+      "id": "TPL_CHALLAN_03",
+      "category": "Fake E-Challan",
+      "language": "as",
+      "text": "ট্ৰেফিক পুলিচ সতৰ্কতা: আপোনাৰ বাহনৰ নামত এটা চালান বাকী আছে। কোৰ্টৰ জাননীৰ পৰা বাচিবলৈ এতিয়াই পৰিশোধ কৰক <URL>",
+      "keyPhrases": ["ট্ৰেফিক পুলিচ", "চালান বাকী আছে", "কোৰ্টৰ জাননীৰ পৰা বাচিবলৈ"],
+      "redFlags": ["ভুৱা ই-চালান বাৰ্তা", "অনলাইন জালিয়াতিৰ লিংক"],
+      "libraryLink": "#/known-scams?id=echallan"
+    },
+    {
+      "id": "TPL_FASTAG_01",
+      "category": "FASTag Deactivation",
+      "language": "en",
+      "text": "Your NHAI FASTag KYC has expired. Your vehicle toll tag will be blacklisted on highway plazas. Update your KYC online immediately at <URL>",
+      "keyPhrases": ["fastag kyc has expired", "toll tag blacklisted", "update your kyc online immediately"],
+      "redFlags": ["Toll blacklisting panic", "Fake NHAI portal link"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_FASTAG_02",
+      "category": "FASTag Deactivation",
+      "language": "hi",
+      "text": "आपका फास्टैग केवाईसी समाप्त हो गया है। टोल प्लाजा पर ब्लैकलिस्ट होने से बचने के लिए तुरंत अपना फास्टैग अपडेट करें <URL>",
+      "keyPhrases": ["फास्टैग केवाईसी समाप्त", "टोल प्लाजा पर ब्लैकलिस्ट", "फास्टैग अपडेट करें"],
+      "redFlags": ["ब्लैकलिस्ट की धमकी", "फर्जी फास्टैग पोर्टल"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_GAS_01",
+      "category": "LPG Subsidy / Gas Booking",
+      "language": "en",
+      "text": "Indane / Bharat Gas Subsidy Notice: Your LPG subsidy of Rs. 450 is pending credit. Click here to verify your linked bank account and claim subsidy <URL>",
+      "keyPhrases": ["lpg subsidy", "pending credit", "verify linked bank account", "claim subsidy"],
+      "redFlags": ["Subsidy bait", "Demanding banking credentials"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_GAS_02",
+      "category": "LPG Subsidy / Gas Booking",
+      "language": "hi",
+      "text": "गैस सब्सिडी सूचना: आपकी गैस सब्सिडी बैंक में नहीं आई है। सब्सिडी तुरंत प्राप्त करने के लिए अपना खाता लिंक करें <URL>",
+      "keyPhrases": ["गैस सब्सिडी सूचना", "सब्सिडी तुरंत प्राप्त करने", "खाता लिंक करें"],
+      "redFlags": ["सब्सिडी का लालच", "फिशिंग लिंक"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_ITR_01",
+      "category": "Income Tax Refund",
+      "language": "en",
+      "text": "Income Tax Department: An income tax refund of Rs. 18,450 has been approved. Please verify your account number and IFSC code at <URL> to disburse payment.",
+      "keyPhrases": ["income tax refund", "approved", "verify account number and ifsc", "disburse payment"],
+      "redFlags": ["Refund lure", "Non-gov portal attempting netbanking phishing"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_ITR_02",
+      "category": "Income Tax Refund",
+      "language": "hi",
+      "text": "आयकर विभाग: आपका 15,200 रुपये का रिफंड स्वीकृत हुआ है। रिफंड पाने के लिए अपना बैंक विवरण यहां सत्यापित करें <URL>",
+      "keyPhrases": ["आयकर विभाग", "रिफंड स्वीकृत", "बैंक विवरण सत्यापित करें"],
+      "redFlags": ["फर्जी टैक्स रिफंड", "बैंक डेटा चोरी का प्रयास"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_CREDIT_LIMIT_01",
+      "category": "Credit Card Limit Increase",
+      "language": "en",
+      "text": "Dear cardholder your credit limit is increased to Rs 3,00,000 for free. Click here to activate new limit and earn 5000 bonus reward points <URL>",
+      "keyPhrases": ["credit limit is increased", "activate new limit", "bonus reward points"],
+      "redFlags": ["Free limit increase trap", "Card details and OTP harvesting link"],
+      "libraryLink": "#/known-scams?id=kyc"
+    },
+    {
+      "id": "TPL_CREDIT_LIMIT_02",
+      "category": "Credit Card Limit Increase",
+      "language": "hi",
+      "text": "बधाई! आपके क्रेडिट कार्ड की लिमिट 2 लाख रुपये बढ़ा दी गई है। तुरंत नई लिमिट सक्रिय करने और रिवॉर्ड पॉइंट पाने के लिए क्लिक करें <URL>",
+      "keyPhrases": ["क्रेडिट कार्ड की लिमिट", "तुरंत नई लिमिट सक्रिय", "रिवॉर्ड पॉइंट"],
+      "redFlags": ["कार्ड लिमिट का झांसा", "सीवीवी और ओटीपी चुराने का लिंक"],
+      "libraryLink": "#/known-scams?id=kyc"
+    }
+  ]
+}

@@ -1,20 +1,20 @@
 {
   "name": "baitcheck",
   "version": "1.0.0",
-  "description": "BaitCheck — Don't take the bait. Mobile-first offline PWA scam detector for anyone, in seconds.",
+  "type": "module",
+  "description": "BaitCheck - Don't take the bait. Mobile-first scam checking PWA for Indian users.",
   "scripts": {
     "test": "node run-tests.node.js",
-    "start": "npx serve ."
+    "start": "python -m http.server 8000"
   },
   "keywords": [
     "cybersecurity",
-    "fraud-prevention",
     "pwa",
-    "offline-first",
-    "elderly-accessible",
-    "i18n",
-    "assamese",
-    "hindi"
+    "scam-detector",
+    "phishing",
+    "sms-fraud",
+    "india"
   ],
+  "author": "Antigravity",
   "license": "MIT"
 }

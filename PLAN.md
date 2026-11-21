@@ -1,144 +1,152 @@
-# BaitCheck Architectural & Execution Plan: PLAN.md
-*Tagline: "Don't take the bait."*
+# BaitCheck Architecture & Implementation Plan: PLAN.md
+*Project: BaitCheck ("Don't take the bait.")*  
+*Hackathon Problem Statement: PS01 — Suspicious Message & Communication Fraud Detector*
 
 ---
 
-## 1. Project Overview & Guiding Constraints
+## 1. Guiding Principles & Non-Negotiables
 
-BaitCheck is a mobile-first Progressive Web Application (PWA) designed to protect citizens, seniors, and first-time smartphone users from smishing, WhatsApp fraud, and deceptive digital communications in seconds.
-
-### Core Non-Negotiables
-1. **Zero External Dependencies / Zero CDN**: No external frameworks, no Tailwind CDN, no external fonts. Everything runs locally and works 100% offline.
-2. **On-Device Sovereign Analysis**: User text never leaves the phone. No remote API calls with message content.
-3. **Multi-Script Accessibility**: Native support for English, Hindi (हिन्दी), and Assamese (অসমীয়া, including script-specific characters ৰ and ৱ).
-4. **Strict Security Model**: Strict Content-Security-Policy (CSP), zero innerHTML injection, suspicious links rendered strictly as plain text (never clickable, never fetched).
-5. **Ultra-Simple Elderly UX**: Body text $\ge 18\text{px}$, tap targets $\ge 48\text{px}$, single primary action per view, voice read-aloud support.
+1. **Zero External Dependencies / Zero CDN**: Pure vanilla HTML5, CSS3, and ES modules. No Tailwind CDN, no npm run build, no external scripts. 100% offline-first.
+2. **On-Device Sovereign Privacy**: No message, link, email, or input ever leaves the device. Clear pledge on-screen: *"Your messages never leave your phone."*
+3. **No Accounts, No Server**: Zero user profiles, zero logins, zero cookies, zero telemetry.
+4. **Altered-Message & Known-Pattern Matching**: Scammers modify words, inject spaces, and use homoglyphs/leetspeak. BaitCheck normalizes text and matches against 50+ generic scam templates using 3-gram Jaccard and shingle similarity.
+5. **Calm Paper-and-Ink Visuals**: Parchment canvas (`#F6F3EA`), deep indigo accent (`#2B3A8C`), hairline borders (`#E3DED1`), high contrast ($>7:1$), compact typography. No glassmorphism, no neon, no dark-pattern urgency.
+6. **Multi-Script Accessibility**: Native support for English, Hindi (हिन्दी), and Assamese (অসমীয়া, with correct handling of ৰ and ৱ). Dynamic text scaling ($A-$ / $A$ / $A+$).
+7. **Strict Security Model**: Strict Content-Security-Policy (CSP), all user input safely rendered via `textContent` or escaped before word-highlighting. Suspicious links rendered strictly as plain text (never clickable, never prefetched).
 
 ---
 
-## 2. File Structure
+## 2. Directory & Module Architecture
 
 ```text
 c:\Users\mkgsa\promptwar\
-├── index.html               # Semantic HTML single-page PWA container
-├── styles.css               # Vanilla CSS implementing design-system/MASTER.md
-├── app.js                   # Application coordinator, DOM bindings, Speech, PWA
-├── engine.js                # Core explainable rule-based scoring engine
-├── rules.json               # Modular weighted detection rules and trusted whitelists
-├── manifest.json            # PWA Web App Manifest (offline-installable)
-├── sw.js                    # Service Worker caching all assets for offline execution
-├── i18n/                    # Localized interface strings & action templates
-│   ├── en.json              # English strings
-│   ├── hi.json              # Hindi (हिन्दी) strings
-│   └── as.json              # Assamese (অসমীয়া) strings
+├── index.html                  # Single-page shell with hash routing container
+├── styles.css                  # Paper-and-ink design system, 4px grid, line-and-hook motion
+├── sw.js                       # Service worker caching all assets for offline execution
+├── manifest.json               # Web App Manifest (standalone mobile PWA)
+│
+├── data/                       # Bundled static knowledge bases
+│   ├── rules.json              # Scoring weights, threshold bands, regex patterns
+│   ├── known-scams.json        # 50+ generic composite scam templates (EN, HI, Hinglish, AS)
+│   ├── brands.json             # Legitimate Indian brands, banks, and official domains
+│   ├── tlds.json               # Suspicious and high-risk TLD definitions
+│   ├── shorteners.json         # Known URL shortener domains
+│   ├── disposable-domains.json # Disposable email provider domains
+│   ├── scams.json              # 14 detailed library entries for #/known-scams
+│   └── guides.json             # 6 practical digital safety guides for #/guides
+│
+├── js/                         # Modular client-side engines (ES modules)
+│   ├── router.js               # Hash router (#/, #/check/*, #/known-scams, #/guides, etc.)
+│   ├── pattern-matcher.js      # NFKC normalization, homoglyphs, leetspeak, 3-gram Jaccard
+│   ├── engine-message.js       # Hero PS01 message engine (urgency, KYC, extortion, jobs)
+│   ├── engine-link.js          # 14 link checks (punycode, shorteners, brand lookalikes)
+│   ├── engine-email.js         # Free-mail masquerade, spoofed brand, header parser
+│   ├── engine-number.js        # Indian phone (+91, 140 telemarketing, 1800, international)
+│   ├── engine-qr.js            # UPI URI parser (pa, pn, am, collect warning)
+│   ├── engine-website.js       # 10-point interactive trust checklist + link analysis
+│   └── app.js                  # App coordinator, UI rendering, speech, sharing, history
+│
+├── i18n/                       # Localized string bundles
+│   ├── en.json                 # English strings
+│   ├── hi.json                 # Hindi (हिन्दी) strings
+│   └── as.json                 # Assamese (অসমীয়া) strings
+│
 ├── design-system/
-│   └── MASTER.md            # Accessibility-first design system specification
-├── test-messages.json       # 25 ground-truth test messages (EN, HI, Hinglish, AS)
-├── tests.html               # In-browser test runner interface (>= 90% target)
-├── test-runner.js           # Automated test evaluation script
-├── PLAN.md                  # This master architecture specification
-└── README.md                # Run instructions, architecture notes, demo script
+│   └── MASTER.md               # Design tokens, accessibility rubric, line-and-hook motion
+│
+├── test-inputs.json            # 60+ ground-truth test cases (including 30 altered variations)
+├── tests.html                  # In-browser visual test suite runner
+├── run-tests.node.js           # CLI Node.js runner for CI/eval validation
+├── PLAN.md                     # This architectural document
+└── README.md                   # Setup guide, algorithm details, 2-minute demo script
 ```
 
 ---
 
-## 3. Data Flow Architecture
+## 3. Data Flow & Evaluation Pipeline
 
 ```mermaid
 flowchart TD
-    UserInput([User Input: Paste / Voice / Image OCR / Demo Preset]) --> TextSanitizer[Text Sanitizer: Plain Text Extraction]
-    TextSanitizer --> Engine{Detection Engine: engine.js}
+    UserInput[Input: Paste / Type / Speak / Preset] --> TypeDetector{Universal Auto-Detector}
+    TypeDetector -->|URL| LinkEngine[engine-link.js: 14 checks]
+    TypeDetector -->|Email| EmailEngine[engine-email.js]
+    TypeDetector -->|Phone Number| PhoneEngine[engine-number.js]
+    TypeDetector -->|UPI ID or URI| QREngine[engine-qr.js]
+    TypeDetector -->|Message Text| MessageEngine[engine-message.js]
     
-    subgraph Rule Evaluation Layer
-        Engine --> WhitelistCheck[Whitelist Filter: Genuine OTPs & Bank Credits with No Links]
-        Engine --> RuleMatcher[Weighted Signal Matcher: rules.json]
-        RuleMatcher --> UrgencySignal[Urgency & Coercion Signals]
-        RuleMatcher --> CredentialSignal[OTP / PIN / KYC / Aadhaar Requests]
-        RuleMatcher --> BrandSpoofSignal[Lookalike Domains & Brand Misuse]
-        RuleMatcher --> UtilityExtortion[Electricity / SIM Cutoff Threats]
-        RuleMatcher --> JobTaskScam[Daily Pay YouTube/Telegram Scams]
-        RuleMatcher --> SuspiciousLinks[Shorteners, .top/.xyz, APK Downloads]
+    subgraph Message Evaluation Pipeline
+        MessageEngine --> Deobfuscator[pattern-matcher.js: NFKC + Homoglyphs + De-spacing]
+        Deobfuscator --> WhitelistFilter[Genuine Whitelist: Real OTPs / Debits without links]
+        Deobfuscator --> TemplateMatcher[3-gram Jaccard Similarity vs 50+ Scam Templates]
+        Deobfuscator --> SignalScanner[Rule Matcher: Urgency, KYC, Threat, APK, Job]
+        MessageEngine --> EmbeddedURLCheck[Extract URLs & Run engine-link.js]
     end
 
-    WhitelistCheck -->|Match Found| SafeVerdict[Score: 0 / Verdict: LOOKS SAFE]
-    RuleMatcher --> Aggregator[Weighted Score & Indicator Synthesizer]
-    Aggregator --> OutputObject[Structured Result Object]
-    
-    SafeVerdict --> UI
-    OutputObject --> UI[Localized Result Card & ARIA Live Announcer]
+    WhitelistFilter -->|Pass| SafeScore[Score 0: No warning signs found]
+    TemplateMatcher --> MatchResult[Similarity Score & Nearest Template]
+    SignalScanner --> FlaggedSignals[Weighted Signals & Monospace Evidence]
+    EmbeddedURLCheck --> MergedSignals[Merged Link Signals]
 
-    subgraph User Actions
-        UI --> ReadAloud[Web Speech API: Speak Result]
-        UI --> FamilyShare[Web Share API: Pre-Formatted Family Warning]
-        UI --> ReportCybercrime[Direct 1930 Helpline Guidance]
+    MatchResult & FlaggedSignals & MergedSignals --> Synthesizer[Scoring Synthesizer]
+    Synthesizer --> CaseCard[Case Card Render]
+    SafeScore --> CaseCard
+
+    subgraph Case Card Presentation
+        CaseCard --> Meter[Animated 6px Meter & Score 0-100]
+        CaseCard --> SignalsList[Why We Flagged It: Icon + Plain Text + Evidence]
+        CaseCard --> TextHighlight[Highlighted Suspicious Phrases]
+        CaseCard --> PatternCompare[Altered-Message Side-by-Side Comparison]
+        CaseCard --> NextSteps[What To Do Next: Action Guidance]
+        CaseCard --> Actions[Read Aloud / Warn Family / 1930 Helpline]
     end
 ```
 
 ---
 
-## 4. Rule Schema (`rules.json`)
+## 4. Normalization & Altered-Message Matching Pipeline
 
-```json
-{
-  "version": "1.0",
-  "thresholds": {
-    "safeMax": 24,
-    "cautionMax": 59,
-    "dangerMin": 60
-  },
-  "whitelist": [
-    {
-      "id": "WL_GENUINE_OTP",
-      "regex": "\\b(OTP|One Time Password)\\b.*\\b(do not share|valid for|INR|Rs\\.)\\b",
-      "mustNotHaveLinks": true
-    },
-    {
-      "id": "WL_BANK_TRANSACTION",
-      "regex": "\\b(debited|credited)\\b.*\\b(A/c|card|ending|available bal)\\b",
-      "mustNotHaveLinks": true
-    }
-  ],
-  "signals": [
-    {
-      "id": "SIG_APK_DOWNLOAD",
-      "category": "malware",
-      "weight": 55,
-      "regex": "\\.apk(\\?|\\b|$)",
-      "reason_key": "reason_apk_download"
-    },
-    {
-      "id": "SIG_URGENCY",
-      "category": "urgency",
-      "weight": 25,
-      "patterns": ["immediately", "within \\d+ hours?", "blocked today", "suspended today", "SIM.*block"],
-      "patterns_hi": ["तुरंत", "आज ही", "24 घंटे", "बंद हो जाएगा", "ब्लॉक"],
-      "patterns_as": ["তৎক্ষণাৎ", "আজিৰ ভিতৰত", "বন্ধ কৰা হ'ব", "ব্লক"],
-      "reason_key": "reason_urgency"
-    }
-  ]
-}
-```
+1. **NFKC Canonical Decomposition & Composition**: Harmonizes full-width and compatibility characters.
+2. **Zero-Width Character Removal**: Strips invisible spaces (`\u200B`, `\u200C`, `\u200D`, `\uFEFF`).
+3. **Homoglyph & Leetspeak Mapping**:
+   - Cyrillic lookalikes: `а` $\to$ `a`, `е` $\to$ `e`, `о` $\to$ `o`, `р` $\to$ `p`, `с` $\to$ `c`, `у` $\to$ `y`, `х` $\to$ `x`, `Т` $\to$ `T`.
+   - Leetspeak substitutions: `0` $\to$ `o`, `1` $\to$ `l`, `$` $\to$ `s`, `@` $\to$ `a`, `3` $\to$ `e`, `5` $\to$ `s`, `7` $\to$ `t`.
+4. **Spaced-Out Letter De-obfuscation**: Regex collapses spaced words like `"O T P"` $\to$ `"otp"`, `"K Y C"` $\to$ `"kyc"`.
+5. **Entity Masking**: Replaces amounts (`Rs. 5000` $\to$ `<AMT>`), phone numbers (`+91 98765 43210` $\to$ `<PHONE>`), URLs $\to$ `<URL>`, dates $\to$ `<DATE>`.
+6. **Obfuscation Detection**: Flags deliberate evasion if homoglyphs, zero-width characters, or spaced letters are discovered: *"This message looks deliberately altered to slip past filters"*.
+7. **Similarity Metric**:
+   $$\text{Similarity} = 0.6 \times \text{Jaccard}_{3\text{-gram}} + 0.4 \times \text{TokenContainment}$$
+   - $\ge 0.75$: **Matches a known scam pattern**
+   - $0.50 - 0.74$: **Resembles a known scam pattern**
 
 ---
 
-## 5. Security & Privacy Review
+## 5. Scoring & Verdict Bands
 
-1. **Zero Data Egress**: All analysis is performed synchronously in `engine.js` using local JavaScript regular expressions. No `fetch` or `XMLHttpRequest` is ever issued with user input.
-2. **Strict Content-Security-Policy (CSP)**:
-   ```html
-   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';">
-   ```
-3. **HTML Injection Immunity**:
-   - Highlighting words and links uses DOM node construction (`document.createElement('span')`, `document.createTextNode()`) or strict entity escaping.
-   - Text is never assigned directly via `element.innerHTML = userInput`.
-4. **Defanged Links**: Suspicious links are displayed inside `<span class="defanged-link">` with copy options, NEVER inside `<a href="...">`.
+Scoring is transparent, deterministic, and bounded between 0 and 100:
+
+| Score Band | Verdict Heading | Badge Color | Semantic Meaning |
+|:---|:---|:---|:---|
+| **0 – 24** | **No warning signs found** | `#1F7A4D` (Green) | No known scam indicators detected in standard checks. |
+| **25 – 54** | **Be careful** | `#9A5B00` (Amber) | Contains caution signs (e.g., shortener, generic greeting). |
+| **55 – 100** | **Likely scam — don't bite** | `#B42318` (Red) | High-confidence fraud indicators or known scam pattern match. |
+
+*Note: BaitCheck never uses the word "safe" or "verified" — an absence of flags does not constitute a legal guarantee.*
 
 ---
 
-## 6. Execution Milestones
+## 6. Security & Privacy Audit Requirements
 
-- **Phase 1: TDD & Test Suite**: Construct `test-messages.json` with 25 realistic multilingual cases and build `tests.html`.
-- **Phase 2: Detection Engine**: Write `rules.json` and `engine.js` until test suite achieves $\ge 90\%$ pass rate with $0\%$ false alarms.
-- **Phase 3: Multi-Language Dictionaries**: Create `i18n/en.json`, `i18n/hi.json`, and `i18n/as.json`.
-- **Phase 4: Accessible UI & PWA**: Build `index.html`, `styles.css`, `app.js`, `manifest.json`, and `sw.js`.
-- **Phase 5: Verification & Delivery**: Run audits for contrast, touch targets, offline caching, and responsive design at 360px.
+- **CSP Meta Tag**: `default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';`
+- **Zero Remote Exfiltration**: `fetch()` or `XMLHttpRequest()` are strictly forbidden from transmitting user message text.
+- **XSS Prevention**: User text is rendered strictly using `document.createTextNode` or `element.textContent`. When highlighting keywords, snippets are HTML-escaped before wrapping in `<mark class="flagged-word">`.
+- **Link Neutralization**: All detected URLs are rendered as plain `<code>` text with `user-select: all`. They are never wrapped in `<a href="...">` and never fetched.
+
+---
+
+## 7. Deliverables & Acceptance Verification
+
+1. `test-inputs.json` with 60+ cases (25 messages, 8 links, 4 emails, 3 numbers, 2 UPI, 30 altered-pattern variations, 10 genuine messages).
+2. Pass rate $\ge 90\%$ on test suite with **0% false alarms** on genuine samples.
+3. Mobile-first layout verified at 360px width with no horizontal overflow.
+4. Complete offline functionality verified via Service Worker cache.
+5. All 3 languages (English, Hindi, Assamese) tested and verified.

@@ -1,0 +1,669 @@
+{
+  "version": "2.0",
+  "description": "BaitCheck ground-truth benchmark suite: 60+ diverse samples testing raw rules, altered-message matching, and genuine whitelisting.",
+  "targetPassRate": 0.90,
+  "tests": [
+    {
+      "id": "MSG_01",
+      "type": "message",
+      "language": "en",
+      "text": "Dear customer your SBI account is suspended today due to KYC pending. Click sbi-kyc-update.top to update PAN card immediately.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_01"
+    },
+    {
+      "id": "MSG_02",
+      "type": "message",
+      "language": "hi",
+      "text": "प्रिय ग्राहक आपका बैंक खाता आज ब्लॉक कर दिया जाएगा। तुरंत अपना पैन कार्ड और आधार अपडेट करें वरना सेवाएं बंद हो जाएंगी http://bank-kyc.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_02"
+    },
+    {
+      "id": "MSG_03",
+      "type": "message",
+      "language": "hinglish",
+      "text": "Dear consumer aapki bijli aaj raat 9:30 baje cut jayegi previous month bill unpaid hai. Turant electricity officer ko call kare 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ELEC_03"
+    },
+    {
+      "id": "MSG_04",
+      "type": "message",
+      "language": "as",
+      "text": "প্ৰিয় গ্ৰাহক আপোনাৰ বিদ্যুৎ সংযোগ আজি নিশা ৯:৩০ বজাত কৰ্তন কৰা হ'ব কাৰণ বিল পৰিশোধ হোৱা নাই। যোগাযোগ কৰক ৯৮৭৬৫৪৩২১০",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ELEC_04"
+    },
+    {
+      "id": "MSG_05",
+      "type": "message",
+      "language": "en",
+      "text": "Earn Rs. 2000 to 5000 daily part time work from home simply by liking YouTube videos. Contact HR on Telegram t.me/task_earning",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_JOB_01"
+    },
+    {
+      "id": "MSG_06",
+      "type": "message",
+      "language": "hi",
+      "text": "घर बैठे रोजाना 2000 से 5000 रुपये कमाएं। सिर्फ यूट्यूब वीडियो लाइक करें और स्क्रीनशॉट भेजें। तुरंत टेलीग्राम पर संपर्क करें t.me/earn",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_JOB_02"
+    },
+    {
+      "id": "MSG_07",
+      "type": "message",
+      "language": "en",
+      "text": "Official Notice from Mumbai Cyber Crime Branch and CBI: A parcel in your name containing illegal contraband has been seized at customs. Digital arrest warrant issued.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ARREST_01"
+    },
+    {
+      "id": "MSG_08",
+      "type": "message",
+      "language": "en",
+      "text": "India Post alert: Your package could not be delivered due to incomplete street address. Please update delivery details within 12 hours at indiapost-track.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_PARCEL_01"
+    },
+    {
+      "id": "MSG_09",
+      "type": "message",
+      "language": "hi",
+      "text": "बधाई हो! आपके मोबाइल नंबर ने केबीसी 25 लाख की लॉटरी जीती है। अपनी इनामी राशि बैंक खाते में प्राप्त करने के लिए तुरंत संपर्क करें 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_02"
+    },
+    {
+      "id": "MSG_10",
+      "type": "message",
+      "language": "as",
+      "text": "অভিনন্দন! আপোনাৰ চিম কাৰ্ড নম্বৰে কেবিচি লটাৰীত ২৫ লাখ টকা লাভ কৰিছে। পুৰস্কাৰ লাভ কৰিবলৈ যোগাযোগ কৰক ৯৮৭৬৫৪৩২১০",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_03"
+    },
+    {
+      "id": "MSG_11",
+      "type": "message",
+      "language": "en",
+      "text": "Merchant refund of Rs. 3500 approved. Click the link and enter your 6-digit UPI PIN on PhonePe to receive money directly into your account http://refund.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_UPI_01"
+    },
+    {
+      "id": "MSG_12",
+      "type": "message",
+      "language": "en",
+      "text": "Instant personal loan of Rs 50,000 approved without CIBIL score. Download quick loan APK now at http://fastcash.apk",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOAN_01"
+    },
+    {
+      "id": "MSG_13",
+      "type": "message",
+      "language": "en",
+      "text": "I have recorded your private nude video call. If you do not transfer Rs. 20,000 immediately, I will upload the video to YouTube and send to all contacts.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_SEX_01"
+    },
+    {
+      "id": "MSG_14",
+      "type": "message",
+      "language": "en",
+      "text": "Join our VIP institutional stock trading WhatsApp group. SEBI registered analyst provides guaranteed 500% profit weekly. Click bit.ly/stockvip",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_INVEST_01"
+    },
+    {
+      "id": "MSG_15",
+      "type": "message",
+      "language": "en",
+      "text": "Customer Support: For immediate assistance with failed transaction or refund, call our 24x7 helpline number 9876543210.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CARE_01"
+    },
+    {
+      "id": "MSG_16",
+      "type": "message",
+      "language": "en",
+      "text": "I want to buy your furniture on OLX. Scan this QR code and enter PIN to collect Rs. 8500 advance payment.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_MARKET_01"
+    },
+    {
+      "id": "MSG_17",
+      "type": "message",
+      "language": "en",
+      "text": "Jio Alert: Your SIM card will be deactivated within 12 hours due to pending 5G verification. Send SMS to 9876543210 to avoid disconnection.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_SIM_01"
+    },
+    {
+      "id": "MSG_18",
+      "type": "message",
+      "language": "en",
+      "text": "Traffic Police E-Challan: A pending violation fine of Rs. 1500 is registered against your vehicle. Pay fine within 24 hours at echallan-parivahan.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CHALLAN_01"
+    },
+    {
+      "id": "MSG_19",
+      "type": "message",
+      "language": "as",
+      "text": "ট্ৰেফিক পুলিচ সতৰ্কতা: আপোনাৰ বাহনৰ নামত এটা চালান বাকী আছে। কোৰ্টৰ জাননীৰ পৰা বাচিবলৈ এতিয়াই পৰিশোধ কৰক http://echallan-assam.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CHALLAN_03"
+    },
+    {
+      "id": "MSG_20",
+      "type": "message",
+      "language": "en",
+      "text": "Your NHAI FASTag KYC has expired. Your vehicle toll tag will be blacklisted on highway plazas. Update your KYC online immediately at fastag-nhai.site",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_FASTAG_01"
+    },
+    {
+      "id": "MSG_21",
+      "type": "message",
+      "language": "hi",
+      "text": "गैस सब्सिडी सूचना: आपकी गैस सब्सिडी बैंक में नहीं आई है। सब्सिडी तुरंत प्राप्त करने के लिए अपना खाता लिंक करें http://lpg-subsidy.club",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_GAS_02"
+    },
+    {
+      "id": "MSG_22",
+      "type": "message",
+      "language": "en",
+      "text": "Income Tax Department: An income tax refund of Rs. 18,450 has been approved. Please verify your account number and IFSC code at incometax-refund.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ITR_01"
+    },
+    {
+      "id": "MSG_23",
+      "type": "message",
+      "language": "en",
+      "text": "Dear cardholder your credit limit is increased to Rs 3,00,000 for free. Click here to activate new limit and earn reward points http://card-limit.online",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CREDIT_LIMIT_01"
+    },
+    {
+      "id": "MSG_24",
+      "type": "message",
+      "language": "hinglish",
+      "text": "Aapka lottery prize Rs 50 lakh claim kare. Is link pe click karke apna registration fee pay kare http://kbc-winner.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_01"
+    },
+    {
+      "id": "MSG_25",
+      "type": "message",
+      "language": "as",
+      "text": "প্ৰিয় গ্ৰাহক আপোনাৰ বেংক একাউণ্ট ব্লক কৰা হৈছে। সেৱা অব্যাহত ৰাখিবলৈ অতি সোনকালে পেন কাৰ্ড আপডেট কৰক http://sbi-assam.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_04"
+    },
+
+    {
+      "id": "LNK_01",
+      "type": "link",
+      "text": "https://sbi-kyc-update.top/login.php",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "LNK_02",
+      "type": "link",
+      "text": "http://192.168.1.100/verify-bank/index.html",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "LNK_03",
+      "type": "link",
+      "text": "https://bit.ly/claim-tax-refund-now",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "LNK_04",
+      "type": "link",
+      "text": "https://hdfc.bank-verify.xyz/otp-confirm",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "LNK_05",
+      "type": "link",
+      "text": "http://free-recharge.sbs/jio-5g-offer.apk",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "LNK_06",
+      "type": "link",
+      "text": "https://www.sbi.co.in/portal/web/home",
+      "expectedBand": "safe"
+    },
+    {
+      "id": "LNK_07",
+      "type": "link",
+      "text": "https://incometax.gov.in/iec/foportal/",
+      "expectedBand": "safe"
+    },
+    {
+      "id": "LNK_08",
+      "type": "link",
+      "text": "https://www.amazon.in/gp/css/order-history",
+      "expectedBand": "safe"
+    },
+
+    {
+      "id": "EML_01",
+      "type": "email",
+      "text": "sbi-support@gmail.com",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "EML_02",
+      "type": "email",
+      "text": "winner-claim@disposable.mailinator.com",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "EML_03",
+      "type": "email",
+      "text": "verify-account@hdfc-update.top",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "EML_04",
+      "type": "email",
+      "text": "alerts@hdfcbank.net",
+      "expectedBand": "safe"
+    },
+
+    {
+      "id": "NUM_01",
+      "type": "number",
+      "text": "+923001234567",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "NUM_02",
+      "type": "number",
+      "text": "1409876543",
+      "expectedBand": "caution"
+    },
+    {
+      "id": "NUM_03",
+      "type": "number",
+      "text": "1800123456",
+      "expectedBand": "safe"
+    },
+
+    {
+      "id": "UPI_01",
+      "type": "qr",
+      "text": "upi://pay?pa=refundclaim88@ybl&pn=MerchantRefund&am=3500&cu=INR",
+      "expectedBand": "danger"
+    },
+    {
+      "id": "UPI_02",
+      "type": "qr",
+      "text": "upi://pay?pa=rohitkumar@okhdfcbank&pn=Rohit%20Kumar",
+      "expectedBand": "safe"
+    },
+
+    {
+      "id": "ALT_KYC_A",
+      "type": "message",
+      "text": "Valued customer your State Bank account is on hold because of pending KYC verification. Tap here to authenticate your PAN card without delay sbi-kyc.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_01"
+    },
+    {
+      "id": "ALT_KYC_B",
+      "type": "message",
+      "text": "D e a r  c u s t o m e r  your S B I  b a n k  a c c o u n t  suspended. Update P A N and O T P immediately http://sbi.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_01"
+    },
+    {
+      "id": "ALT_KYC_C",
+      "type": "message",
+      "text": "SBI customer ji aapka bank khata hold pe chala gaya hai kyc pending hone ke karan. Turant pan card update kare http://sbi.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_KYC_01"
+    },
+
+    {
+      "id": "ALT_ELEC_A",
+      "type": "message",
+      "text": "Attention electricity consumer: Current supply will be halted at 9:30 tonight from substation as last invoice is unpaid. Speak with power officer 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ELEC_01"
+    },
+    {
+      "id": "ALT_ELEC_B",
+      "type": "message",
+      "text": "E l e c t r i c i t y  will be d i s c o n n e c t e d  t o n i g h t  9 : 3 0  P M . Call electricity officer 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ELEC_01"
+    },
+    {
+      "id": "ALT_ELEC_C",
+      "type": "message",
+      "text": "Bijli bill na bharne se power connection aaj raat 9:30 baje cut hone wala hai. Electricity officer se turant sampark kare 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ELEC_01"
+    },
+
+    {
+      "id": "ALT_JOB_A",
+      "type": "message",
+      "text": "Make Rs 2500-4500 every day working remotely by subscribing and viewing YouTube clips. Message our hiring team on Telegram t.me/jobs",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_JOB_01"
+    },
+    {
+      "id": "ALT_JOB_B",
+      "type": "message",
+      "text": "E a r n  d a i l y  2 0 0 0 - 5 0 0 0  w o r k  f r o m  h o m e  by liking YouTube videos. Telegram hr manager t.me/earn",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_JOB_01"
+    },
+    {
+      "id": "ALT_JOB_C",
+      "type": "message",
+      "text": "Ghar baithe daily 2000 se 5000 kamaye sirf YouTube video like karke. Telegram pe HR manager se baat kare t.me/work",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_JOB_01"
+    },
+
+    {
+      "id": "ALT_ARR_A",
+      "type": "message",
+      "text": "Cyber Crime department warning: Your identity card was discovered in illegal customs shipment. Non-bailable digital arrest order is active. Join Skype video now.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ARREST_01"
+    },
+    {
+      "id": "ALT_ARR_B",
+      "type": "message",
+      "text": "M u m b a i  p o l i c e  &  C B I : D i g i t a l  a r r e s t  w a r r a n t  issued for illegal parcel. Skype interrogation immediately.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ARREST_01"
+    },
+    {
+      "id": "ALT_ARR_C",
+      "type": "message",
+      "text": "Mumbai police aur CBI notice: Aapke naam pe contraband parcel customs me pakda gaya hai. Digital arrest warrant jari hua hai turant connect kare.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_ARREST_01"
+    },
+
+    {
+      "id": "ALT_PARCEL_A",
+      "type": "message",
+      "text": "Postal department notification: Consignment could not be handed over owing to missing home number. Confirm street address in 12 hours at post-track.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_PARCEL_01"
+    },
+    {
+      "id": "ALT_PARCEL_B",
+      "type": "message",
+      "text": "I n d i a  P o s t : P a c k a g e  d e l i v e r y  f a i l e d  incomplete street address. Update details within 12 hours at indiapost.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_PARCEL_01"
+    },
+    {
+      "id": "ALT_PARCEL_C",
+      "type": "message",
+      "text": "India post se aapka parcel deliver nahi hua address incomplete hai. 12 ghante me address update kare indiapost.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_PARCEL_01"
+    },
+
+    {
+      "id": "ALT_LOT_A",
+      "type": "message",
+      "text": "Felicitations! Your phone number has won 25 Lakh Rupees in National Lucky Draw. To collect jackpot prize speak with WhatsApp officer 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_01"
+    },
+    {
+      "id": "ALT_LOT_B",
+      "type": "message",
+      "text": "C o n g r a t u l a t i o n s !  W o n  2 5  L a k h  in K B C  l u c k y  d r a w . Claim prize on WhatsApp 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_01"
+    },
+    {
+      "id": "ALT_LOT_C",
+      "type": "message",
+      "text": "Mubarak ho aapke number ne KBC 25 lakh lottery jeeti hai. Prize lene ke liye WhatsApp manager ko message kare 9876543210",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOTTERY_01"
+    },
+
+    {
+      "id": "ALT_UPI_A",
+      "type": "message",
+      "text": "Store cashback of Rs 3500 cleared. Open link and input your secret 6 digit UPI PIN on PhonePe to deposit money into your account http://cashback.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_UPI_01"
+    },
+    {
+      "id": "ALT_UPI_B",
+      "type": "message",
+      "text": "R e f u n d  approved Rs 3500. Enter  U P I  P I N  on PhonePe to receive money http://refund.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_UPI_01"
+    },
+    {
+      "id": "ALT_UPI_C",
+      "type": "message",
+      "text": "Aapka 3500 refund pass ho gaya hai. PhonePe pe jaake UPI PIN enter karke paise receive kare http://refund.xyz",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_UPI_01"
+    },
+
+    {
+      "id": "ALT_LOAN_A",
+      "type": "message",
+      "text": "Pre-approved quick personal credit Rs 50,000 without credit history check. Get application package APK right now for instant payout http://loan.apk",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOAN_01"
+    },
+    {
+      "id": "ALT_LOAN_B",
+      "type": "message",
+      "text": "I n s t a n t  l o a n  5 0 , 0 0 0  approved without cibil. Download loan a p k  now http://loan.apk",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOAN_01"
+    },
+    {
+      "id": "ALT_LOAN_C",
+      "type": "message",
+      "text": "Bina kisi document ke 50000 instant loan approved. Loan app apk download kare aur 5 minute me paise paye http://loan.apk",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_LOAN_01"
+    },
+
+    {
+      "id": "ALT_SEX_A",
+      "type": "message",
+      "text": "Your intimate camera video has been taped. Unless you send 20000 INR immediately, this will be shared across YouTube and distributed to family.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_SEX_01"
+    },
+    {
+      "id": "ALT_SEX_B",
+      "type": "message",
+      "text": "R e c o r d e d  y o u r  n u d e  v i d e o  call. Transfer Rs 20000 immediately or upload to YouTube and send to contacts.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_SEX_01"
+    },
+    {
+      "id": "ALT_SEX_C",
+      "type": "message",
+      "text": "Maine tumhara private video call record kar liya hai. Agar turant 20000 nahi bheje to sabhi relatives aur YouTube pe daal dunga.",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_SEX_01"
+    },
+
+    {
+      "id": "ALT_CHAL_A",
+      "type": "message",
+      "text": "Motor vehicle enforcement notice: Outstanding fine of Rs 1500 logged for your automobile. Clear dues within 24 hrs to prevent magistrate notice echallan.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CHALLAN_01"
+    },
+    {
+      "id": "ALT_CHAL_B",
+      "type": "message",
+      "text": "T r a f f i c  p o l i c e  e - c h a l l a n  pending violation fine Rs 1500. Pay within 24 hours at echallan.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CHALLAN_01"
+    },
+    {
+      "id": "ALT_CHAL_C",
+      "type": "message",
+      "text": "Traffic police e challan: Aapki gadi pe 1500 ka challan baki hai. Court warrant se bachne ke liye 24 ghante me pay kare echallan.top",
+      "expectedBand": "danger",
+      "shouldMatchPattern": true,
+      "expectedTemplateId": "TPL_CHALLAN_01"
+    },
+
+    {
+      "id": "GEN_01",
+      "type": "message",
+      "language": "en",
+      "text": "Your OTP for login to SBI NetBanking is 482910. Valid for 10 minutes. Do not share this OTP with anyone.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_02",
+      "type": "message",
+      "language": "en",
+      "text": "INR 1,250.00 debited from A/c ending 4821 on 21-Nov-26 by UPI to Swiggy. Available bal INR 14,320.50.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_03",
+      "type": "message",
+      "language": "en",
+      "text": "Your Uber trip receipt: Rs. 182 paid via cash. Thanks for riding with Uber.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_04",
+      "type": "message",
+      "language": "hi",
+      "text": "आपका एचडीएफसी बैंक ओटीपी 849201 है। किसी के भी साथ इसे साझा न करें।",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_05",
+      "type": "message",
+      "language": "hi",
+      "text": "खाता संख्या 1092 में 5000 रुपये जमा किए गए हैं। कुल शेष राशि 12,450 रुपये।",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_06",
+      "type": "message",
+      "language": "as",
+      "text": "আপোনাৰ বেংক অ’টিপি ৮৩৯২০১। এই অ’টিপি কাৰো সৈতে শ্বেয়াৰ নকৰিব।",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_07",
+      "type": "message",
+      "language": "hinglish",
+      "text": "Bhai main station pahunch gaya hu, 10 minute me auto leke ghar aa raha hu.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_08",
+      "type": "message",
+      "language": "en",
+      "text": "Hi Mom, please find the class notes and book summary we discussed yesterday.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_09",
+      "type": "message",
+      "language": "en",
+      "text": "Your Flipkart package containing Shoes will be delivered today by our agent Rajesh. No payment required.",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    },
+    {
+      "id": "GEN_10",
+      "type": "message",
+      "language": "as",
+      "text": "মই ঘৰলৈ গৈ আছোঁ, সন্ধিয়া কথা পাতিম। চিন্তা নকৰিবা।",
+      "expectedBand": "safe",
+      "shouldMatchPattern": false
+    }
+  ]
+}

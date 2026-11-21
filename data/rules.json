@@ -1,0 +1,123 @@
+{
+  "version": "2.1",
+  "lastUpdated": "2026-11-21",
+  "thresholds": {
+    "safeMax": 24,
+    "cautionMax": 54,
+    "dangerMin": 55
+  },
+  "verdictBands": {
+    "safe": { "label": "No warning signs found", "band": "safe", "color": "#1F7A4D" },
+    "caution": { "label": "Be careful", "band": "caution", "color": "#9A5B00" },
+    "danger": { "label": "Likely scam — don't bite", "band": "danger", "color": "#B42318" }
+  },
+  "whitelist": [
+    {
+      "id": "WL_GENUINE_OTP",
+      "regex": "(OTP|One Time Password|ओटीपी|অ’টিপি).*(do not share|valid for|INR|Rs\\.|secret code|साझा न करें|शेयर न करें|শ্বেয়াৰ নকৰিব)",
+      "mustNotHaveLinks": true
+    },
+    {
+      "id": "WL_BANK_TRANSACTION",
+      "regex": "(debited|credited|debited by|credited with|जमा किए गए|निकाले गए|পৰিশোধ|জমা).*(A/c|account|card|ending|available bal|balance|खाता|बैलेंस|এক্টিভ)",
+      "mustNotHaveLinks": true
+    },
+    {
+      "id": "WL_PERSONAL_CONVERSATION",
+      "regex": "(kaha ho|ghar aa jao|khana kha lo|reaching station|notes bhej do|kaha pahunche|how are you|kaisa hai|bhai|bhabhi|station|ঘৰলৈ|class notes|riding with uber|no payment required)",
+      "mustNotHaveLinks": true,
+      "negativeGuard": "disconnection|officer|arrest|suspend|verify|debit|credit"
+    }
+  ],
+  "messageRules": [
+    {
+      "id": "MSG_URGENCY",
+      "weight": 25,
+      "severity": "warn",
+      "regex": "(immediately|urgent|within 24 hours|account suspended|deactivated|blocked|cut off|24 ghante ke andar|turant|aaj raat|বিদ্যুৎ কৰ্তন|হৈ যাব|বন্ধ হ'ব|without delay)",
+      "textKey": "signal_urgency"
+    },
+    {
+      "id": "MSG_CREDENTIAL_DEMAND",
+      "weight": 40,
+      "severity": "danger",
+      "regex": "(share otp|send your pin|cvv|password|aadhaar details|pan card number|otp batao|pin daliye|input your secret|enter your.*pin)",
+      "textKey": "signal_credential_demand"
+    },
+    {
+      "id": "MSG_KYC_EXTORTION",
+      "weight": 40,
+      "severity": "danger",
+      "regex": "(kyc update|kyc expired|pan not linked|account will be blocked|kyc karwaye|sim block|sim card band|কেৱাইচি|কে ৱাই চি|আপডেট কৰক|kyc pending|kyc verification|authenticate your pan)",
+      "textKey": "signal_kyc"
+    },
+    {
+      "id": "MSG_UTILITY_DISCONNECTION",
+      "weight": 55,
+      "severity": "danger",
+      "regex": "(electricity.*disconnect|power.*cut|current supply.*halted|substation.*unpaid|bijli.*cut|power officer|electricity officer|বিল পৰিশোধ হোৱা নাই|বিদ্যুৎ বিছিন্ন|disconnect.*tonight)",
+      "textKey": "signal_electricity"
+    },
+    {
+      "id": "MSG_TASK_JOB_FRAUD",
+      "weight": 55,
+      "severity": "danger",
+      "regex": "(earn.*daily|part time.*work|working remotely.*youtube|daily.*kamaye.*youtube|make rs.*every day|earn.*2000|work from home.*payment|telegram.*task|ইউটিউব.*ভিডিঅ|ঘৰত বহি|like.*youtube videos)",
+      "textKey": "signal_job_task"
+    },
+    {
+      "id": "MSG_DIGITAL_ARREST",
+      "weight": 55,
+      "severity": "danger",
+      "regex": "(digital arrest|cbi officer|narcotics parcel|mumbai police|customs penalty|arrest warrant|supreme court order|নাৰ্কোটিক|গ্ৰেপ্তাৰ|contraband parcel|cyber crime.*warning.*illegal)",
+      "textKey": "signal_digital_arrest"
+    },
+    {
+      "id": "MSG_LOTTERY_PRIZE",
+      "weight": 55,
+      "severity": "danger",
+      "regex": "(kbc lucky draw|lottery winner|won.*25 lakh|national lucky draw|jackpot prize|lottery.*jeeti|লাকী ড্ৰ|পুৰস্কাৰ লাভ|won.*lucky draw|felicitations.*won|mubarak ho.*lottery)",
+      "textKey": "signal_lottery"
+    },
+    {
+      "id": "MSG_SEXTORTION",
+      "weight": 55,
+      "severity": "danger",
+      "regex": "(private nude video|video call record|nude video call|recording of you|upload to youtube.*contacts|अश्लील वीडियो कॉल|निजी वीडियो|ভিডিঅ' ৰেকৰ্ড|intimate camera video|recorded.*video.*call)",
+      "textKey": "signal_sextortion"
+    },
+    {
+      "id": "MSG_APK_DOWNLOAD",
+      "weight": 50,
+      "severity": "danger",
+      "regex": "(\\.apk|download support app|install quicksupport|anydesk|teamviewer|rustdesk|এপিকে|এপ ডাউনলোড|application package apk)",
+      "textKey": "signal_apk"
+    },
+    {
+      "id": "MSG_PARCEL_CUSTOMS",
+      "weight": 40,
+      "severity": "danger",
+      "regex": "(india post parcel failed|address incomplete|update address to deliver package|customs clearance fee|পাৰ্চেল|ঠিকনা আধৰুৱা|consignment.*not be handed over|package could not be delivered)",
+      "textKey": "signal_parcel"
+    },
+    {
+      "id": "MSG_ECHALLAN_SPOOF",
+      "weight": 45,
+      "severity": "danger",
+      "regex": "(traffic challan pending|e-challan payment|vehicle impounded pay immediately|চালান পৰিশোধ|traffic police e-challan|motor vehicle enforcement notice|outstanding fine.*automobile)",
+      "textKey": "signal_echallan"
+    }
+  ],
+  "linkRules": [
+    { "id": "LINK_IP_HOST", "weight": 45, "severity": "danger", "textKey": "signal_ip_host" },
+    { "id": "LINK_SHORTENER", "weight": 25, "severity": "warn", "textKey": "signal_shortener" },
+    { "id": "LINK_SUSPICIOUS_TLD", "weight": 35, "severity": "danger", "textKey": "signal_suspicious_tld" },
+    { "id": "LINK_BRAND_LOOKALIKE", "weight": 45, "severity": "danger", "textKey": "signal_brand_lookalike" },
+    { "id": "LINK_GOV_SPOOF", "weight": 45, "severity": "danger", "textKey": "signal_gov_spoof" },
+    { "id": "LINK_CREDENTIAL_PATH", "weight": 30, "severity": "danger", "textKey": "signal_credential_path" },
+    { "id": "LINK_NO_HTTPS", "weight": 20, "severity": "warn", "textKey": "signal_no_https" },
+    { "id": "LINK_PUNYCODE", "weight": 35, "severity": "danger", "textKey": "signal_punycode" },
+    { "id": "LINK_APK_FILE", "weight": 45, "severity": "danger", "textKey": "signal_apk_file" },
+    { "id": "LINK_TOO_MANY_SUBDOMAINS", "weight": 25, "severity": "warn", "textKey": "signal_excessive_subdomains" }
+  ]
+}

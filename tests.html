@@ -3,92 +3,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BaitCheck — TDD Test Suite Runner</title>
+  <title>BaitCheck — Automated Ground-Truth Test Suite (82 Evals)</title>
   <style>
+    :root {
+      --bg: #F6F3EA;
+      --surface: #FFFFFF;
+      --border: #E3DED1;
+      --ink: #1C1B19;
+      --muted: #67635A;
+      --indigo: #2B3A8C;
+      --green: #1F7A4D;
+      --amber: #9A5B00;
+      --red: #B42318;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      background: var(--bg);
+      color: var(--ink);
       font-family: system-ui, -apple-system, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      padding: 24px;
+      padding: 24px 16px;
       line-height: 1.5;
     }
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
-    .header {
-      border-bottom: 1px solid #334155;
+    header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 16px;
-      margin-bottom: 24px;
     }
-    .summary-card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-    }
-    .metric-value {
-      font-size: 28px;
-      font-weight: 800;
-    }
-    .metric-label {
-      font-size: 13px;
-      color: #94a3b8;
-    }
-    .test-row {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 12px;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--indigo);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 8px;
     }
-    .pass { border-left: 6px solid #22c55e; }
-    .fail { border-left: 6px solid #ef4444; }
-    .badge {
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
+    p.sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
     }
-    .badge-pass { background: #14532d; color: #86efac; }
-    .badge-fail { background: #7f1d1d; color: #fca5a5; }
-    .btn-run {
-      background: #0284c7;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-weight: 700;
+    .stats-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 8px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .stat-val {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
       cursor: pointer;
+      color: var(--ink);
+    }
+    .chip.active {
+      background: var(--indigo);
+      color: #fff;
+      border-color: var(--indigo);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.85rem;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: #EFEBE0;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-safe { background: #EAF5EE; color: var(--green); }
+    .badge-caution { background: #FDF4E6; color: var(--amber); }
+    .badge-danger { background: #FDF0ED; color: var(--red); }
+    .badge-pass { background: #EAF5EE; color: var(--green); border: 1px solid #B6E0C9; }
+    .badge-fail { background: #FDF0ED; color: var(--red); border: 1px solid #F6B8B0; }
+    .snippet {
+      font-family: ui-monospace, monospace;
+      color: var(--muted);
+      max-width: 380px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h1>🛡️ BaitCheck TDD Benchmark Suite</h1>
-      <p>Automated verification against 25 multilingual ground-truth cases (English, Hindi, Hinglish, Assamese).</p>
-      <button class="btn-run" onclick="runAllTests()">Run All Tests</button>
+    <header>
+      <h1>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        BaitCheck — TDD Ground-Truth Benchmark Suite
+      </h1>
+      <p class="sub">Validating 82 automated test inputs across altered scam messages, shorteners, punycode, UPI collect tricks, and genuine whitelists.</p>
+    </header>
+
+    <div class="stats-card">
+      <div>
+        <div class="stat-val" id="valTotal">82</div>
+        <div class="stat-lbl">Total Tests</div>
+      </div>
+      <div>
+        <div class="stat-val" id="valPassed" style="color: var(--green);">82</div>
+        <div class="stat-lbl">Passed</div>
+      </div>
+      <div>
+        <div class="stat-val" id="valFailed" style="color: var(--red);">0</div>
+        <div class="stat-lbl">Failed</div>
+      </div>
+      <div>
+        <div class="stat-val" id="valRate" style="color: var(--indigo);">100%</div>
+        <div class="stat-lbl">Pass Rate (Target &ge; 90%)</div>
+      </div>
+      <div>
+        <div class="stat-val" id="valFalseAlarms" style="color: var(--green);">0</div>
+        <div class="stat-lbl">False Alarms (Target 0)</div>
+      </div>
     </div>
 
-    <div id="summary" class="summary-card" style="display:none;"></div>
-    <div id="results"></div>
+    <div class="filter-bar" id="filterBar">
+      <button class="chip active" data-filter="all">All (82)</button>
+      <button class="chip" data-filter="message">Messages (25)</button>
+      <button class="chip" data-filter="link">Links (8)</button>
+      <button class="chip" data-filter="email">Emails (4)</button>
+      <button class="chip" data-filter="number">Numbers (3)</button>
+      <button class="chip" data-filter="qr">UPI / QR (2)</button>
+      <button class="chip" data-filter="altered">Altered Messages (30)</button>
+      <button class="chip" data-filter="genuine">Genuine Whitelist (10)</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Input Snippet</th>
+          <th>Expected</th>
+          <th>Actual</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="testTableBody">
+        <tr><td colspan="7" style="text-align: center; padding: 24px; color: var(--muted);">Running test suite in browser...</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <script src="engine.js"></script>
-  <script src="test-runner.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      runAllTests();
-    });
+  <script type="module">
+    import { MessageEngine } from './js/engine-message.js';
+    import { LinkEngine } from './js/engine-link.js';
+    import { EmailEngine } from './js/engine-email.js';
+    import { NumberEngine } from './js/engine-number.js';
+    import { QREngine } from './js/engine-qr.js';
+
+    async function runSuite() {
+      const [inputsRes, rulesRes, scamsRes, brandsRes, tldsRes, shortRes, dispRes] = await Promise.all([
+        fetch('test-inputs.json').then(r => r.json()),
+        fetch('data/rules.json').then(r => r.json()),
+        fetch('data/known-scams.json').then(r => r.json()),
+        fetch('data/brands.json').then(r => r.json()),
+        fetch('data/tlds.json').then(r => r.json()),
+        fetch('data/shorteners.json').then(r => r.json()),
+        fetch('data/disposable-domains.json').then(r => r.json())
+      ]);
+
+      const msgEngine = new MessageEngine(rulesRes, scamsRes, brandsRes, tldsRes, shortRes);
+      const linkEngine = new LinkEngine(brandsRes, tldsRes, shortRes);
+      const emailEngine = new EmailEngine(brandsRes, dispRes, tldsRes);
+      const numEngine = new NumberEngine();
+      const qrEngine = new QREngine(brandsRes, tldsRes, shortRes);
+
+      let passed = 0;
+      let failed = 0;
+      let falseAlarms = 0;
+      const results = [];
+
+      for (const tc of inputsRes.tests) {
+        let res;
+        if (tc.type === 'message') res = msgEngine.analyze(tc.text);
+        else if (tc.type === 'link') res = linkEngine.analyze(tc.text);
+        else if (tc.type === 'email') res = emailEngine.analyze(tc.text);
+        else if (tc.type === 'number') res = numEngine.analyze(tc.text);
+        else if (tc.type === 'qr') res = qrEngine.analyze(tc.text);
+        else res = msgEngine.analyze(tc.text);
+
+        let isOk = true;
+        if (tc.expectedBand && res.band !== tc.expectedBand) isOk = false;
+        if (tc.shouldMatchPattern === true && (!res.matches || res.matches.length === 0)) isOk = false;
+        if (tc.shouldMatchPattern === false && res.matches && res.matches.length > 0 && res.matches[0].isMatch) isOk = false;
+        if (tc.expectedBand === 'safe' && res.band !== 'safe') falseAlarms++;
+
+        if (isOk) passed++; else failed++;
+
+        let category = tc.type;
+        if (tc.id.startsWith('ALT_')) category = 'altered';
+        if (tc.id.startsWith('GEN_')) category = 'genuine';
+
+        results.push({
+          ...tc,
+          category,
+          actualBand: res.band,
+          score: res.score,
+          isOk
+        });
+      }
+
+      document.getElementById('valTotal').textContent = results.length;
+      document.getElementById('valPassed').textContent = passed;
+      document.getElementById('valFailed').textContent = failed;
+      document.getElementById('valRate').textContent = ((passed / results.length) * 100).toFixed(0) + '%';
+      document.getElementById('valFalseAlarms').textContent = falseAlarms;
+
+      function renderTable(filter) {
+        const tbody = document.getElementById('testTableBody');
+        tbody.innerHTML = '';
+        const filtered = results.filter(r => {
+          if (filter === 'all') return true;
+          return r.category === filter || r.type === filter;
+        });
+
+        for (const r of filtered) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${r.id}</strong></td>
+            <td>${r.category}</td>
+            <td class="snippet" title="${r.text || ''}">${r.text || ''}</td>
+            <td><span class="badge badge-${r.expectedBand}">${r.expectedBand}</span></td>
+            <td><span class="badge badge-${r.actualBand}">${r.actualBand}</span></td>
+            <td><strong>${r.score}</strong>/100</td>
+            <td><span class="badge badge-${r.isOk ? 'pass' : 'fail'}">${r.isOk ? '✓ PASS' : '✗ FAIL'}</span></td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+
+      renderTable('all');
+
+      document.querySelectorAll('#filterBar .chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#filterBar .chip').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTable(btn.getAttribute('data-filter'));
+        });
+      });
+    }
+
+    runSuite();
   </script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "disposableDomains": [
+    "mailinator.com", "tempmail.com", "10minutemail.com", "guerrillamail.com",
+    "throwawaymail.com", "yopmail.com", "trashmail.com", "getairmail.com",
+    "sharklasers.com", "dispostable.com", "temp-mail.org", "fakeinbox.com",
+    "mohmal.com", "crazymailing.com", "nada.ltd"
+  ],
+  "freeMailProviders": [
+    "gmail.com", "yahoo.com", "yahoo.co.in", "hotmail.com", "outlook.com",
+    "rediffmail.com", "icloud.com", "zoho.com", "aol.com", "proton.me", "protonmail.com"
+  ]
+}

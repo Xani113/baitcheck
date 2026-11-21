@@ -1,0 +1,247 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-11-21",
+  "categories": [
+    "All", "Banking & KYC", "Police & Authority", "Work & Earnings", "Delivery & Logistics", "UPI & Payments", "Utility & Services"
+  ],
+  "scams": [
+    {
+      "id": "kyc",
+      "title": "Fake KYC / Bank Account Freeze Scam",
+      "category": "Banking & KYC",
+      "howItWorks": "Fraudsters send SMS alerts claiming your bank account or PAN card is blocked due to incomplete KYC. Clicking the link takes you to a counterfeit banking page that steals your username, password, and OTP.",
+      "fakeExample": "Dear customer your SBI account is suspended today due to KYC pending. Click sbi-kyc-update.top to update PAN card immediately.",
+      "redFlags": [
+        "Urgent threat that your account will be disabled within 12-24 hours.",
+        "Link points to an unofficial domain (.top, .xyz, .site) instead of your bank's official URL.",
+        "Asks for sensitive credentials like NetBanking password, debit card PIN, or OTP."
+      ],
+      "whatToDo": [
+        "Never tap on links sent via SMS claiming to update KYC.",
+        "Banks never ask for credentials or biometric updates over SMS.",
+        "Visit your bank's branch in person or use the official mobile app directly."
+      ]
+    },
+    {
+      "id": "digital-arrest",
+      "title": "Digital Arrest / Fake Police & CBI Call",
+      "category": "Police & Authority",
+      "howItWorks": "Scammers pose as CBI, police, or customs officers via WhatsApp or Skype video calls wearing fake uniforms. They claim a parcel with illegal narcotics was seized in your name and order you into 'digital arrest' until you pay a clearance bond.",
+      "fakeExample": "Official notice: Mumbai Crime Branch seized an illegal contraband courier sent with your Aadhaar ID. A non-bailable digital arrest warrant is issued against you. Connect to Skype call now.",
+      "redFlags": [
+        "The concept of 'Digital Arrest' does not legally exist in Indian law.",
+        "Police and CBI never interrogate suspects or demand money over video calls.",
+        "They demand you stay alone in a closed room and show you fake FIR documents."
+      ],
+      "whatToDo": [
+        "Disconnect the call immediately. You cannot be arrested over a phone or video call.",
+        "Do not transfer any money or bond fee.",
+        "Report the phone number immediately to the Chakshu facility on Sanchar Saathi and call 1930."
+      ]
+    },
+    {
+      "id": "job",
+      "title": "Part-Time Job / Task-Earning YouTube Scam",
+      "category": "Work & Earnings",
+      "howItWorks": "Victims receive WhatsApp or Telegram messages offering Rs. 2,000–5,000 daily for liking YouTube videos or rating Google Maps locations. Initial small payouts build trust before victims are tricked into depositing large sums in fake 'prepaid crypto tasks'.",
+      "fakeExample": "Earn Rs. 3000 to 5000 daily part time work from home. Just like 3 YouTube videos and get paid. Contact HR manager on Telegram @EarnDaily_HR.",
+      "redFlags": [
+        "Extravagant daily earnings for trivial tasks requiring no skills.",
+        "Redirects conversations to anonymous Telegram channels.",
+        "Demands an advance deposit or 'upgrade fee' to release accumulated earnings."
+      ],
+      "whatToDo": [
+        "Recognize that legitimate companies never pay hundreds of rupees for YouTube likes.",
+        "Never transfer money to get a job or withdraw your supposed earnings.",
+        "Block and report the contact on WhatsApp and Telegram."
+      ]
+    },
+    {
+      "id": "parcel",
+      "title": "Parcel Delivery Failure / India Post Spoof",
+      "category": "Delivery & Logistics",
+      "howItWorks": "You receive an SMS pretending to be India Post or an international courier stating your parcel cannot be delivered because the street number is missing. It asks you to pay a nominal Rs. 5 or Rs. 25 re-delivery fee on a fake payment gateway that clones your card.",
+      "fakeExample": "India Post: Your package could not be delivered due to incomplete street address. Please update address and pay Rs. 25 re-delivery fee within 12 hours at indiapost-track.info/update.",
+      "redFlags": [
+        "Sender header is a regular 10-digit mobile number rather than an official government alpha-header (e.g. AD-INDPOST).",
+        "The URL is not an official .gov.in domain.",
+        "Pressure to update within 12 hours or have the package forfeited."
+      ],
+      "whatToDo": [
+        "Do not click the link or enter your credit/debit card numbers.",
+        "Check your tracking number directly on the official indiapost.gov.in portal.",
+        "Postal services do not demand online micro-payments to fix an address."
+      ]
+    },
+    {
+      "id": "lottery",
+      "title": "Lottery / KBC Lucky Draw Scam",
+      "category": "Work & Earnings",
+      "howItWorks": "Scammers send audio clips or letters with Amitabh Bachchan's photo or KBC branding claiming your mobile number was randomly selected for a Rs. 25 lakh lottery prize. You are asked to deposit 'tax' or 'manager fees' first.",
+      "fakeExample": "Congratulations! Your mobile number won Rs. 25,00,000 in KBC All India Lucky Draw. To claim your lottery prize contact WhatsApp lottery officer immediately at 9876543210.",
+      "redFlags": [
+        "You cannot win a lottery that you never bought a ticket for.",
+        "Demands an advance fee to release the lottery winnings.",
+        "Official programs never conduct lottery communications on personal WhatsApp numbers."
+      ],
+      "whatToDo": [
+        "Ignore the message completely. Genuine lotteries never ask winners to pay fees upfront.",
+        "Never send Aadhaar, PAN card, or bank passbook photos to unknown numbers.",
+        "Block the sender immediately."
+      ]
+    },
+    {
+      "id": "upi",
+      "title": "UPI Collect Request / Fake Refund Scam",
+      "category": "UPI & Payments",
+      "howItWorks": "A scammer claims they are issuing a merchant refund, cashback, or an advance payment. They send a UPI collect link or request and instruct you to enter your UPI PIN to 'verify and receive' the funds.",
+      "fakeExample": "Merchant refund of Rs. 3500 approved. Click the link and enter your 6-digit UPI PIN on PhonePe to receive money directly into your account.",
+      "redFlags": [
+        "Telling you to enter your UPI PIN to receive money.",
+        "You NEVER need a UPI PIN to receive money — a PIN is exclusively for authorizing debits.",
+        "Notification popup on your UPI app says 'Pay' or 'Approve request', not 'Received'."
+      ],
+      "whatToDo": [
+        "Remember the cardinal rule of UPI: PIN is required ONLY to SEND money, NEVER to receive.",
+        "Decline any incoming collect request from unknown parties.",
+        "Report the sender UPI ID directly inside your payment app."
+      ]
+    },
+    {
+      "id": "loan",
+      "title": "Predatory Loan App Blackmail",
+      "category": "Banking & KYC",
+      "howItWorks": "Shady loan apps advertised on social media promise instant loans in 5 minutes with zero documentation. Upon installation, the APK demands full access to contacts, photos, and location, followed by extortion with morphed images.",
+      "fakeExample": "Instant loan of Rs. 50,000 approved without CIBIL score. Download InstantLoan.apk now and get cash credited in 5 minutes.",
+      "redFlags": [
+        "Distributed as an APK file download outside the Google Play Store.",
+        "App requests invasive permissions: Contacts, Camera, SMS, and Gallery.",
+        "Excessive interest rates and repayment demanded within 7 days."
+      ],
+      "whatToDo": [
+        "Only borrow from RBI-registered banks and NBFCs.",
+        "Never install raw APK files from SMS links or untrusted websites.",
+        "If threatened with morphed photos, file an immediate complaint at cybercrime.gov.in."
+      ]
+    },
+    {
+      "id": "sextortion",
+      "title": "Video Call Sextortion & Extortion",
+      "category": "Police & Authority",
+      "howItWorks": "An unknown woman calls on WhatsApp video. As soon as the call connects, a recorded explicit video is played while the user's face is recorded. Minutes later, the blackmailer sends the morphed video demanding immediate ransom.",
+      "fakeExample": "I have recorded your nude video call. If you don't transfer Rs. 20,000 in 15 minutes, this will be uploaded to YouTube and sent to everyone in your contact list.",
+      "redFlags": [
+        "Video call from an unknown number on WhatsApp or Instagram.",
+        "Caller immediately strips or plays pre-recorded nude footage.",
+        "Extortion message arrives within minutes demanding immediate money transfer."
+      ],
+      "whatToDo": [
+        "Never accept video calls from unknown numbers.",
+        "Never pay a single rupee — paying only leads to higher ransom demands.",
+        "Take screenshots of the threats, block the contact, and report to 1930."
+      ]
+    },
+    {
+      "id": "electricity",
+      "title": "Electricity Bill Disconnection Threat",
+      "category": "Utility & Services",
+      "howItWorks": "SMS sent in late evening claiming electricity power will be disconnected at 9:30 PM due to an unpaid bill. The user is instructed to call a 10-digit mobile number, where the fraudster instructs them to install a remote desktop app.",
+      "fakeExample": "Dear consumer electricity power will be disconnected tonight at 9:30 PM from power office because your previous month bill was not updated. Contact electricity officer at 9876543210 immediately.",
+      "redFlags": [
+        "Disconnection threat set for tonight (disconnections require legal written notice).",
+        "Provides a personal 10-digit mobile number rather than official electricity board helplines.",
+        "Urges installation of AnyDesk, TeamViewer, or QuickSupport to 'check connection'."
+      ],
+      "whatToDo": [
+        "Check your electricity bill status exclusively through your official discom app or portal.",
+        "Power distribution companies never send notices from personal mobile numbers.",
+        "Never install remote-sharing tools on instructions from an unknown caller."
+      ]
+    },
+    {
+      "id": "investment",
+      "title": "Fake Stock Trading & Investment Groups",
+      "category": "Work & Earnings",
+      "howItWorks": "Victims are added to WhatsApp groups run by fake 'SEBI registered advisors' displaying screenshots of massive daily profits. Victims are directed to an unverified trading app that displays fake gains but blocks withdrawals.",
+      "fakeExample": "Join VIP institutional stock trading WhatsApp group. Our SEBI registered analyst gives guaranteed 500% profit weekly. Click to join free: chat.whatsapp.com/invitelink.",
+      "redFlags": [
+        "Promises of 'guaranteed returns' (promising guaranteed returns in equities is illegal).",
+        "Group members post uniform praise and identical profit screenshots.",
+        "Investments are made by transferring money to individual personal bank accounts."
+      ],
+      "whatToDo": [
+        "Verify all advisors on the official SEBI register (sebi.gov.in).",
+        "Never transfer money to personal savings accounts for stock market trading.",
+        "Exit and report unsolicited investment chat groups."
+      ]
+    },
+    {
+      "id": "customer-care",
+      "title": "Fake Customer Care Search Results",
+      "category": "Utility & Services",
+      "howItWorks": "When searching for customer support for banks, airlines, or delivery apps on Google, fraudsters place ads with fake phone numbers. When dialed, the imposter asks the caller to install remote support software or send an OTP.",
+      "fakeExample": "Customer Support: For immediate refund on failed transaction or order, call our 24x7 toll-free helpline number 9876543210.",
+      "redFlags": [
+        "10-digit mobile number advertised as a 'toll-free customer care' number.",
+        "Agent asks you to download QuickSupport, AnyDesk, or RustDesk.",
+        "Agent asks for your debit card CVV, expiry date, or an incoming OTP."
+      ],
+      "whatToDo": [
+        "Always take customer care numbers from the official app or official website only.",
+        "Never trust phone numbers found in Google search ad cards or Google Maps listings.",
+        "No legitimate customer service executive will ever ask for an OTP or remote phone access."
+      ]
+    },
+    {
+      "id": "marketplace-qr",
+      "title": "OLX / Marketplace QR Code Payment Scam",
+      "category": "UPI & Payments",
+      "howItWorks": "When you list an item for sale on OLX or Facebook Marketplace, a buyer immediately agrees to buy without negotiating and offers to pay an advance. They send a QR code and ask you to scan it and enter your PIN to receive the payment.",
+      "fakeExample": "I am sending you advance payment of Rs. 8500. Scan this QR code on PhonePe, tap Pay, and enter your PIN to collect the money.",
+      "redFlags": [
+        "Buyer sends a QR code to pay you (QR codes are used to make payments, not receive them).",
+        "Buyer instructs you to enter your UPI PIN.",
+        "Buyer refuses to meet in person or speak over regular voice call."
+      ],
+      "whatToDo": [
+        "Refuse to scan any QR code sent by a buyer.",
+        "Share only your UPI ID or mobile number to receive funds — nothing more is required.",
+        "Demand cash on physical handover for local classifieds."
+      ]
+    },
+    {
+      "id": "sim-swap",
+      "title": "SIM Card Expiry / 5G Upgrade Trap",
+      "category": "Utility & Services",
+      "howItWorks": "SMS warning that your 4G SIM will be deactivated today unless upgraded to 5G. The victim is instructed to forward an SMS with an eSIM code or 20-digit SIM number to 121 or 199, enabling the scammer to take over the phone number.",
+      "fakeExample": "Jio Alert: Your SIM card will be deactivated in 12 hours due to pending 5G KYC. Send SMS 'SIMREQ 8991...' to 121 to avoid disconnection.",
+      "redFlags": [
+        "Threat of SIM deactivation within hours.",
+        "Instructions to forward an alphanumeric code to telecom numbers.",
+        "Telecom operators upgrade networks automatically — physical SIM upgrades occur in official retail stores."
+      ],
+      "whatToDo": [
+        "Never forward alphanumeric codes or SIM numbers to telecom service codes.",
+        "Check your connection status inside the official MyJio or Airtel Thanks app.",
+        "If your SIM suddenly shows 'No Service', contact your operator immediately from another phone."
+      ]
+    },
+    {
+      "id": "echallan",
+      "title": "Fake Traffic E-Challan Alert",
+      "category": "Police & Authority",
+      "howItWorks": "SMS alert claiming a traffic fine of Rs. 1,000–2,000 is pending against your vehicle. Clicking the link takes you to a cloned Parivahan site that steals your debit/credit card details.",
+      "fakeExample": "Traffic Police: A traffic challan of Rs. 1500 is pending on your vehicle DL-01-AB-1234. Pay fine within 24 hours to avoid court warrant at echallan-parivahan.top.",
+      "redFlags": [
+        "Link domain is not the official echallan.parivahan.gov.in portal.",
+        "Threatens immediate court warrant or vehicle seizure within 24 hours.",
+        "Message does not mention the exact violation location or photographic evidence."
+      ],
+      "whatToDo": [
+        "Never pay traffic fines through links sent via SMS.",
+        "Always verify pending violations directly on echallan.parivahan.gov.in.",
+        "Check your registered vehicle status on the official mParivahan mobile app."
+      ]
+    }
+  ]
+}

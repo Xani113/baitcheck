@@ -3,7 +3,7 @@
  * Fully offline asset caching. Zero external network egress.
  */
 
-const CACHE_NAME = 'baitcheck-v2.9.0';
+const CACHE_NAME = 'baitcheck-v2.10.0';
 
 const ASSETS_TO_CACHE = [
   './',

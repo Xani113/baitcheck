@@ -123,6 +123,7 @@ class BaitCheckApp {
   }
 
   showView(viewName) {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
     const target = document.getElementById(`view-${viewName}`);
     if (target) {
@@ -311,6 +312,7 @@ class BaitCheckApp {
     const btnClear = document.getElementById('btnClear');
     if (btnClear && textarea) {
       btnClear.addEventListener('click', () => {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
         textarea.value = '';
         const resultContainer = document.getElementById('caseCardContainer');
         if (resultContainer) resultContainer.innerHTML = '';
@@ -339,6 +341,7 @@ class BaitCheckApp {
   }
 
   runCheck() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     const textarea = document.getElementById('universalInput');
     if (!textarea) return;
 
@@ -560,9 +563,37 @@ class BaitCheckApp {
     const btnActionSpeak = document.getElementById('btnActionSpeak');
     if (btnActionSpeak) {
       btnActionSpeak.addEventListener('click', () => {
+        if (!('speechSynthesis' in window)) return;
+
+        // If currently speaking or active, toggle STOP
+        if (window.speechSynthesis.speaking || btnActionSpeak.classList.contains('speaking')) {
+          window.speechSynthesis.cancel();
+          btnActionSpeak.innerHTML = `🔊 ${this.t('btn_read_aloud')}`;
+          btnActionSpeak.classList.remove('speaking');
+          return;
+        }
+
+        // Start reading aloud
+        window.speechSynthesis.cancel(); // Clear any queued speech
         const textToSpeak = `${bandLabels[band]}. Score: ${score} out of 100. ${bandSubtexts[band]}`;
         const utter = new SpeechSynthesisUtterance(textToSpeak);
         utter.lang = this.currentLang === 'hi' ? 'hi-IN' : (this.currentLang === 'as' ? 'as-IN' : 'en-IN');
+
+        utter.onstart = () => {
+          btnActionSpeak.innerHTML = `⏹️ ${this.t('btn_stop_reading')}`;
+          btnActionSpeak.classList.add('speaking');
+        };
+
+        utter.onend = () => {
+          btnActionSpeak.innerHTML = `🔊 ${this.t('btn_read_aloud')}`;
+          btnActionSpeak.classList.remove('speaking');
+        };
+
+        utter.onerror = () => {
+          btnActionSpeak.innerHTML = `🔊 ${this.t('btn_read_aloud')}`;
+          btnActionSpeak.classList.remove('speaking');
+        };
+
         window.speechSynthesis.speak(utter);
       });
     }

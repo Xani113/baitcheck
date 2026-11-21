@@ -1246,6 +1246,12 @@ mark.flagged-word {
 .btn-action-outline:hover {
   background-color: var(--color-surface-subtle);
 }
+.btn-action-outline.speaking {
+  background-color: var(--color-indigo-tint);
+  border-color: var(--color-indigo);
+  color: var(--color-indigo);
+  font-weight: 600;
+}
 
 .btn-action-danger {
   display: inline-flex;

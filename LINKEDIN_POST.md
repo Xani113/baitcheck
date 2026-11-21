@@ -20,7 +20,7 @@ Scam syndicates are weaponizing fear and urgency against Indian citizens:
 Elders and first-time smartphone users struggle to differentiate genuine bank OTPs from credential harvesting portals.
 
 ### 💡 The Solution: BaitCheck
-We built **BaitCheck** with a strict "Privacy by Design" architecture:
+I built **BaitCheck** with a strict "Privacy by Design" architecture:
 ✅ **100% On-Device Sovereign Privacy**: Messages, links, and UPI IDs never leave the phone. Zero cloud servers, zero telemetry, and zero accounts required.
 ✅ **Universal Auto-Detector Box**: Single input console that detects messages, links, emails, phone numbers, or UPI strings automatically.
 ✅ **Altered-Message Pattern Engine**: De-obfuscates Cyrillic homoglyphs (`а` for `a`), leetspeak, and spaced text against 50+ localized scam templates (English, Hindi, Hinglish, Assamese).
@@ -32,9 +32,9 @@ We built **BaitCheck** with a strict "Privacy by Design" architecture:
 🌐 **Live Web App**: https://eck-q431.vercel.app
 💻 **GitHub Repository**: https://github.com/Xani113/baitcheck
 
-Built with zero external frameworks, 100% semantic HTML5, CSS3, vanilla ES modules, and Service Worker offline caching.
+Built solo with zero external frameworks, 100% semantic HTML5, CSS3, vanilla ES modules, and Service Worker offline caching.
 
-Huge shoutout to the organizers and mentors of the #PromptWar Hackathon! 🚀
+Huge shoutout to the organizers, mentors, and partners at AURA, Hack2skill, Google for Developers, and PromptWars! 🚀
 
-#Cybersecurity #BaitCheck #PromptWar #PhishingDefense #PWA #DigitalIndia #WebSecurity #TechForGood #Hackathon #DPDPAct
+#AURA_GU #Hack2skill #GoogleForDevelopers #PromptWars #PromptWar #Cybersecurity #BaitCheck #PWA #DigitalIndia #WebSecurity #TechForGood #Hackathon #DPDPAct
 ```

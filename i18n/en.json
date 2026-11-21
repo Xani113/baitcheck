@@ -73,5 +73,17 @@
   "faq_3_q": "Is BaitCheck free to use?",
   "faq_3_a": "Yes, permanently free and open-source for public consumer safety. No account registration, subscription, or ads.",
   "faq_4_q": "What should I do if I have already lost money to fraud?",
-  "faq_4_a": "Call the National Cyber Crime Helpline at 1930 immediately. Every minute matters to freeze fraudulent recipient accounts."
+  "faq_4_a": "Call the National Cyber Crime Helpline at 1930 immediately. Every minute matters to freeze fraudulent recipient accounts.",
+  "card_tool_message": "Scam Checker",
+  "card_tool_message_desc": "Check whether a message, offer or contact is a scam.",
+  "card_tool_link": "Link Checker",
+  "card_tool_link_desc": "Scan a link for phishing and malware before you open it.",
+  "card_tool_email": "Email Checker",
+  "card_tool_email_desc": "Find out if an email address or sender is trustworthy.",
+  "card_tool_number": "Phone Checker",
+  "card_tool_number_desc": "Check a phone number for fraud and scam reports.",
+  "card_tool_website": "Website Checker",
+  "card_tool_website_desc": "Check whether an online shop or website is legitimate.",
+  "card_tool_qr": "QR Checker",
+  "card_tool_qr_desc": "Reveal where a QR code actually sends you."
 }

@@ -310,9 +310,9 @@ button, input, textarea, select {
   width: 390px;
   height: 390px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, #0B192C 0%, #060E1A 60%, #03070E 100%);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 0 35px rgba(0, 240, 255, 0.12), inset 0 0 45px rgba(0, 0, 0, 0.7);
+  background: transparent;
+  border: 1px dashed rgba(43, 58, 140, 0.22);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -323,8 +323,8 @@ button, input, textarea, select {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(43, 58, 140, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 58, 140, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: center center;
   border-radius: 50%;
@@ -336,7 +336,7 @@ button, input, textarea, select {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(0, 240, 255, 0.04) 310deg, rgba(0, 240, 255, 0.3) 360deg);
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(43, 58, 140, 0.02) 310deg, rgba(43, 58, 140, 0.18) 360deg);
   animation: radarSweepAnim 4s linear infinite;
   pointer-events: none;
   z-index: 2;
@@ -360,19 +360,19 @@ button, input, textarea, select {
 .ring-outer {
   width: 335px;
   height: 335px;
-  border: 1px dashed rgba(0, 240, 255, 0.18);
+  border: 1px dashed rgba(43, 58, 140, 0.22);
 }
 
 .ring-middle {
   width: 250px;
   height: 250px;
-  border: 1px solid rgba(0, 240, 255, 0.22);
+  border: 1px solid rgba(43, 58, 140, 0.24);
 }
 
 .ring-inner {
   width: 160px;
   height: 160px;
-  border: 1px solid rgba(0, 240, 255, 0.28);
+  border: 1px solid rgba(43, 58, 140, 0.32);
 }
 
 .radar-core-glow {
@@ -383,7 +383,7 @@ button, input, textarea, select {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(43, 58, 140, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -396,29 +396,30 @@ button, input, textarea, select {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: #040914;
-  border: 2px solid #00F0FF;
+  background: #FFFFFF;
+  border: 2.5px solid var(--color-indigo);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.45);
+  box-shadow: 0 4px 18px rgba(43, 58, 140, 0.16);
   z-index: 10;
   animation: shieldPulse 3s ease-in-out infinite;
 }
 
 @keyframes shieldPulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
-    border-color: #00F0FF;
+    box-shadow: 0 4px 14px rgba(43, 58, 140, 0.14);
+    border-color: var(--color-indigo);
   }
   50% {
-    box-shadow: 0 0 35px rgba(0, 240, 255, 0.65);
-    border-color: #38BDF8;
+    box-shadow: 0 6px 24px rgba(43, 58, 140, 0.28);
+    border-color: #1E2B6C;
   }
 }
 
 .shield-svg {
-  filter: drop-shadow(0 0 6px #00F0FF);
+  stroke: var(--color-indigo);
+  filter: drop-shadow(0 2px 4px rgba(43, 58, 140, 0.2));
 }
 
 /* Orbit Layers */
@@ -480,8 +481,9 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background-color: #FFFFFF;
 }
 
 .orbit-outer .node-icon-box {
@@ -503,29 +505,29 @@ button, input, textarea, select {
 }
 
 .node-icon-box.bg-blue {
-  background-color: #0B223D;
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #38BDF8;
+  background-color: var(--color-indigo-tint);
+  border-color: #C8CDF0;
+  color: var(--color-indigo);
 }
 .node-icon-box.bg-slate {
-  background-color: #101928;
-  border-color: rgba(148, 163, 184, 0.25);
-  color: #94A3B8;
+  background-color: #FFFFFF;
+  border-color: var(--color-border);
+  color: var(--color-muted);
 }
 .node-icon-box.bg-red {
-  background-color: #2F1316;
-  border-color: rgba(248, 113, 113, 0.45);
-  color: #F87171;
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger);
 }
 .node-icon-box.bg-amber {
-  background-color: #2E1F0A;
-  border-color: rgba(251, 191, 36, 0.45);
-  color: #FBBF24;
+  background-color: var(--color-caution-bg);
+  border-color: var(--color-caution-border);
+  color: var(--color-caution);
 }
 .node-icon-box.bg-cyan {
-  background-color: #0A2B38;
-  border-color: rgba(0, 240, 255, 0.5);
-  color: #00F0FF;
+  background-color: #E0F2FE;
+  border-color: #BAE6FD;
+  color: #0369A1;
 }
 
 /* Satellite Blip Dot */
@@ -536,8 +538,8 @@ button, input, textarea, select {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: #00F0FF;
-  box-shadow: 0 0 10px #00F0FF;
+  background-color: var(--color-indigo);
+  box-shadow: 0 0 8px rgba(43, 58, 140, 0.5);
   animation: blipPulse 2s ease-in-out infinite;
 }
 
@@ -738,8 +740,9 @@ button, input, textarea, select {
 
 /* Case Card (Results) */
 .case-card-wrapper {
-  max-width: 660px;
-  margin: 0 auto 24px auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 16px 0 24px 0;
 }
 
 .case-card {
@@ -1074,8 +1077,9 @@ mark.flagged-word {
 
 /* "Try an Example" Row */
 .examples-row-container {
-  max-width: 660px;
-  margin: 0 auto 32px auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 16px 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1114,12 +1118,124 @@ mark.flagged-word {
   background-color: var(--color-safe-bg);
 }
 
-/* How It Works Horizontal Strip */
+/* 6 Quick Tools Grid Section (Matches Reference Architecture & Left-Aligned) */
+.tools-quick-grid-section {
+  width: 100%;
+  margin: 4px 0 32px 0;
+  text-align: left;
+}
+
+.tools-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .tools-quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .tools-quick-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-quick-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+  width: 100%;
+}
+
+.tool-quick-card:hover {
+  border-color: var(--color-indigo);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 58, 140, 0.08);
+}
+
+.tool-quick-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tool-quick-icon-box.cat-scam {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger-border);
+}
+
+.tool-quick-icon-box.cat-link {
+  background-color: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  border: 1px solid #C8CDF0;
+}
+
+.tool-quick-icon-box.cat-email {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.tool-quick-icon-box.cat-phone {
+  background-color: var(--color-caution-bg);
+  color: var(--color-caution);
+  border: 1px solid var(--color-caution-border);
+}
+
+.tool-quick-icon-box.cat-web {
+  background-color: #F0FDF4;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.tool-quick-icon-box.cat-qr {
+  background-color: #F5F3FF;
+  color: #6D28D9;
+  border: 1px solid #DDD6FE;
+}
+
+.tool-quick-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tool-quick-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.tool-quick-desc {
+  font-size: 0.775rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+/* How It Works Horizontal Strip (Shifted Left) */
 .how-it-works-strip {
-  max-width: 920px;
-  margin: 0 auto 36px auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 36px 0;
   border-top: 1px solid var(--color-border);
   padding-top: 24px;
+  text-align: left;
 }
 
 .strip-heading {
@@ -1127,6 +1243,7 @@ mark.flagged-word {
   font-weight: 600;
   color: var(--color-ink);
   margin-bottom: 16px;
+  text-align: left;
 }
 
 .strip-steps-grid {
@@ -1167,15 +1284,18 @@ mark.flagged-word {
   color: var(--color-muted);
 }
 
-/* Home FAQ Accordion */
+/* Home FAQ Accordion (Shifted Left) */
 .home-faq-section {
-  max-width: 660px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 0 36px 0;
+  text-align: left;
 }
 .section-title {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 12px;
+  text-align: left;
 }
 .faq-accordion-group {
   display: flex;

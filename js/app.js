@@ -241,6 +241,24 @@ class BaitCheckApp {
       });
     });
 
+    // Quick Tool Cards in Home View
+    document.querySelectorAll('.tool-quick-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const targetTool = card.getAttribute('data-tool-target');
+        if (targetTool) {
+          this.forcedTool = targetTool;
+          this.updateSegmentedTabs();
+          if (textarea) {
+            textarea.focus();
+            textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (textarea.value.trim()) {
+              this.runCheck();
+            }
+          }
+        }
+      });
+    });
+
     // Primary Check Button
     const btnCheck = document.getElementById('btnCheck');
     if (btnCheck) {

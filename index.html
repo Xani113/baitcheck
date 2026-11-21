@@ -154,6 +154,9 @@
               </div>
             </div>
 
+            <!-- Case Card Results Container (Directly under console on left side) -->
+            <div id="caseCardContainer" class="case-card-wrapper" aria-live="polite"></div>
+
           </div>
 
           <!-- Right Column: Interactive Rotating Cyber Radar Security Symbol -->
@@ -248,19 +251,70 @@
 
         </div>
 
-        <!-- Case Card Results Container (Dynamically rendered directly underneath) -->
-        <div id="caseCardContainer" class="case-card-wrapper" aria-live="polite"></div>
+        <!-- 6 Quick Detection Tool Cards (Left-Aligned, Direct Match to Architecture) -->
+        <section class="tools-quick-grid-section" aria-label="Detection Tools">
+          <div class="tools-quick-grid">
+            <button class="tool-quick-card" data-tool-target="message" type="button">
+              <div class="tool-quick-icon-box cat-scam">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_message">Scam Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_message_desc">Check whether a message, offer or contact is a scam.</div>
+              </div>
+            </button>
 
-        <!-- "Try an Example" Row -->
-        <div class="examples-row-container">
-          <span class="examples-label" data-i18n="try_examples_label">Try an example:</span>
-          <div class="example-chips-group">
-            <button class="btn-example" data-example="kyc" data-i18n="example_kyc">KYC Freeze SMS</button>
-            <button class="btn-example" data-example="link" data-i18n="example_link">Spoofed SBI Link</button>
-            <button class="btn-example" data-example="upi" data-i18n="example_upi">UPI Collect Request</button>
-            <button class="btn-example example-safe" data-example="safe" data-i18n="example_safe">Genuine Bank Alert</button>
+            <button class="tool-quick-card" data-tool-target="link" type="button">
+              <div class="tool-quick-icon-box cat-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_link">Link Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_link_desc">Scan a link for phishing and malware before you open it.</div>
+              </div>
+            </button>
+
+            <button class="tool-quick-card" data-tool-target="email" type="button">
+              <div class="tool-quick-icon-box cat-email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_email">Email Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_email_desc">Find out if an email address or sender is trustworthy.</div>
+              </div>
+            </button>
+
+            <button class="tool-quick-card" data-tool-target="number" type="button">
+              <div class="tool-quick-icon-box cat-phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_number">Phone Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_number_desc">Check a phone number for fraud and scam reports.</div>
+              </div>
+            </button>
+
+            <button class="tool-quick-card" data-tool-target="website" type="button">
+              <div class="tool-quick-icon-box cat-web">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_website">Website Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_website_desc">Check whether an online shop or website is legitimate.</div>
+              </div>
+            </button>
+
+            <button class="tool-quick-card" data-tool-target="qr" type="button">
+              <div class="tool-quick-icon-box cat-qr">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div class="tool-quick-info">
+                <div class="tool-quick-title" data-i18n="card_tool_qr">QR Checker</div>
+                <div class="tool-quick-desc" data-i18n="card_tool_qr_desc">Reveal where a QR code actually sends you.</div>
+              </div>
+            </button>
           </div>
-        </div>
+        </section>
 
         <!-- Horizontal 4-Step "How it works" Strip -->
         <section class="how-it-works-strip" aria-labelledby="howItWorksTitle">

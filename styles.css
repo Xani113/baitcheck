@@ -252,10 +252,13 @@ button, input, textarea, select {
   flex: 1;
   min-width: 0;
   max-width: 620px;
+  position: relative;
 }
 
 .hero-text-block {
   margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-app-title {
@@ -296,67 +299,56 @@ button, input, textarea, select {
   font-weight: 600;
 }
 
-/* Small Rotating Radar on Left Side (Synced with Background Color) */
-.hero-header-top-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
+/* Left Side Ambient Rotating Radar Scanner (Bigger with Low Opacity, Synced with Background) */
+.left-ambient-scanner {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+  opacity: 0.20; /* Low opacity watermark effect as in reference screenshot */
+  z-index: 1;
+  transition: opacity 200ms ease;
 }
 
-.left-mini-radar {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.mini-radar-disc {
-  width: 48px;
-  height: 48px;
+.ambient-scanner-disc {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: transparent;
-  border: 1px dashed rgba(43, 58, 140, 0.28);
+  border: 1.5px dashed rgba(43, 58, 140, 0.45);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle inner cyber grid for mini radar */
-.mini-radar-disc::before {
+/* Internal cyber grid for ambient scanner */
+.ambient-scanner-disc::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(43, 58, 140, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(43, 58, 140, 0.08) 1px, transparent 1px);
-  background-size: 12px 12px;
+    linear-gradient(rgba(43, 58, 140, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 58, 140, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
   background-position: center center;
   border-radius: 50%;
   pointer-events: none;
 }
 
-/* Mini Rotating Radar Sweep */
-.mini-radar-sweep {
+/* Rotating Sweep Beam */
+.ambient-scanner-sweep {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(43, 58, 140, 0.04) 310deg, rgba(43, 58, 140, 0.28) 360deg);
-  animation: miniRadarSweepAnim 3s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(43, 58, 140, 0.04) 300deg, rgba(43, 58, 140, 0.4) 360deg);
+  animation: radarSweepAnim 5s linear infinite;
   pointer-events: none;
   z-index: 2;
 }
 
-@keyframes miniRadarSweepAnim {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Mini Concentric Rings */
-.mini-radar-ring {
+/* Concentric Track Rings */
+.ambient-scanner-ring {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -365,49 +357,96 @@ button, input, textarea, select {
   pointer-events: none;
 }
 
-.mini-ring-outer {
-  width: 36px;
-  height: 36px;
-  border: 1px dashed rgba(43, 58, 140, 0.24);
+.ambient-scanner-ring.ring-outer {
+  width: 240px;
+  height: 240px;
+  border: 1px dashed rgba(43, 58, 140, 0.45);
 }
 
-.mini-ring-inner {
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(43, 58, 140, 0.32);
+.ambient-scanner-ring.ring-middle {
+  width: 165px;
+  height: 165px;
+  border: 1px solid rgba(43, 58, 140, 0.4);
 }
 
-/* Mini Center Shield Hub */
-.mini-radar-shield {
+.ambient-scanner-ring.ring-inner {
+  width: 95px;
+  height: 95px;
+  border: 1px solid rgba(43, 58, 140, 0.5);
+}
+
+/* Center Shield Hub */
+.ambient-scanner-shield {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 1.5px solid var(--color-indigo);
+  border: 2px solid var(--color-indigo);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 4px rgba(43, 58, 140, 0.2);
+  box-shadow: 0 2px 8px rgba(43, 58, 140, 0.25);
   z-index: 10;
   color: var(--color-indigo);
 }
 
-/* Mini Pulsing Blip Dot */
-.mini-radar-blip {
+/* Ambient Blip Dots */
+.ambient-radar-blip {
   position: absolute;
-  top: 9px;
-  right: 11px;
-  width: 5px;
-  height: 5px;
   border-radius: 50%;
   background-color: var(--color-indigo);
-  box-shadow: 0 0 6px rgba(43, 58, 140, 0.6);
-  animation: blipPulse 1.8s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(43, 58, 140, 0.6);
   z-index: 5;
+}
+
+.ambient-radar-blip.blip-1 {
+  top: 48px;
+  right: 62px;
+  width: 7px;
+  height: 7px;
+  animation: blipPulse 2.2s ease-in-out infinite;
+}
+
+.ambient-radar-blip.blip-2 {
+  bottom: 64px;
+  left: 52px;
+  width: 6px;
+  height: 6px;
+  animation: blipPulse 2.8s ease-in-out infinite 0.9s;
+}
+
+@media (max-width: 580px) {
+  .left-ambient-scanner {
+    width: 220px;
+    height: 220px;
+    top: -15px;
+    left: -15px;
+    opacity: 0.16;
+  }
+  .ambient-scanner-ring.ring-outer {
+    width: 190px;
+    height: 190px;
+  }
+  .ambient-scanner-ring.ring-middle {
+    width: 130px;
+    height: 130px;
+  }
+  .ambient-scanner-ring.ring-inner {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/* Ensure text and console sit cleanly above the ambient scanner */
+.universal-box-wrapper,
+.examples-row-container,
+.case-card-wrapper {
+  position: relative;
+  z-index: 2;
 }
 
 /* Hero Right Column: Cyber Radar Module */

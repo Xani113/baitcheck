@@ -68,25 +68,25 @@
           <!-- Left Column: Title, Headline, Console, Segmented Control, Presets -->
           <div class="hero-left-column">
             
-            <div class="hero-text-block">
-              <div class="hero-header-top-row">
-                <!-- Small Rotating Radar on Left Side (Synced with Background Color) -->
-                <div class="left-mini-radar" title="Live On-Device Protection Radar" aria-hidden="true">
-                  <div class="mini-radar-disc">
-                    <div class="mini-radar-sweep"></div>
-                    <div class="mini-radar-ring mini-ring-outer"></div>
-                    <div class="mini-radar-ring mini-ring-inner"></div>
-                    <div class="mini-radar-shield">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                    </div>
-                    <div class="mini-radar-blip"></div>
-                  </div>
+            <!-- Left Side Ambient Rotating Radar Scanner (Bigger with Low Opacity, Synced with Background) -->
+            <div class="left-ambient-scanner" aria-hidden="true">
+              <div class="ambient-scanner-disc">
+                <div class="ambient-scanner-sweep"></div>
+                <div class="ambient-scanner-ring ring-outer"></div>
+                <div class="ambient-scanner-ring ring-middle"></div>
+                <div class="ambient-scanner-ring ring-inner"></div>
+                <div class="ambient-scanner-shield">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
+                <div class="ambient-radar-blip blip-1"></div>
+                <div class="ambient-radar-blip blip-2"></div>
+              </div>
+            </div>
 
-                <div class="privacy-badge">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span data-i18n="privacy_promise">Your messages never leave your phone. All checks run locally & 100% offline.</span>
-                </div>
+            <div class="hero-text-block">
+              <div class="privacy-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span data-i18n="privacy_promise">Your messages never leave your phone. All checks run locally & 100% offline.</span>
               </div>
               <h1 class="hero-app-title">Bait<span class="accent-hook">Check</span></h1>
               <p class="hero-tagline" data-i18n="tagline">Don't take the bait.</p>

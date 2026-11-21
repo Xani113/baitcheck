@@ -50,6 +50,13 @@
 
 body {
   background-color: var(--color-page);
+  /* Tactical square grid background across the entire website */
+  background-image: 
+    linear-gradient(to right, rgba(43, 58, 140, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(43, 58, 140, 0.065) 1px, transparent 1px);
+  background-size: 54px 54px;
+  background-position: -1px -1px;
+  background-attachment: fixed;
   color: var(--color-ink);
   font-family: var(--font-family);
   font-size: 0.875rem; /* 14px */
@@ -102,7 +109,9 @@ button, input, textarea, select {
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  background-color: var(--color-page);
+  background-color: rgba(246, 243, 234, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
@@ -285,6 +294,120 @@ button, input, textarea, select {
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+/* Small Rotating Radar on Left Side (Synced with Background Color) */
+.hero-header-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.left-mini-radar {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mini-radar-disc {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px dashed rgba(43, 58, 140, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle inner cyber grid for mini radar */
+.mini-radar-disc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(43, 58, 140, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 58, 140, 0.08) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-position: center center;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Mini Rotating Radar Sweep */
+.mini-radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(43, 58, 140, 0.04) 310deg, rgba(43, 58, 140, 0.28) 360deg);
+  animation: miniRadarSweepAnim 3s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes miniRadarSweepAnim {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mini Concentric Rings */
+.mini-radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mini-ring-outer {
+  width: 36px;
+  height: 36px;
+  border: 1px dashed rgba(43, 58, 140, 0.24);
+}
+
+.mini-ring-inner {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(43, 58, 140, 0.32);
+}
+
+/* Mini Center Shield Hub */
+.mini-radar-shield {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(43, 58, 140, 0.2);
+  z-index: 10;
+  color: var(--color-indigo);
+}
+
+/* Mini Pulsing Blip Dot */
+.mini-radar-blip {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-indigo);
+  box-shadow: 0 0 6px rgba(43, 58, 140, 0.6);
+  animation: blipPulse 1.8s ease-in-out infinite;
+  z-index: 5;
 }
 
 /* Hero Right Column: Cyber Radar Module */

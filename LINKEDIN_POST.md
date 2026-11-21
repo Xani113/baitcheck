@@ -7,7 +7,7 @@ Copy, customize, and share this post on LinkedIn for your hackathon submission!
 ```markdown
 🛡️ 80% of digital financial fraud starts with a simple text message.
 
-For the #PromptWar Hackathon (Problem Statement: PS01 — Suspicious Message & Communication Fraud Detector), our team built and deployed **BaitCheck** 🎣 ("Don't take the bait.") — a mobile-first, 100% offline Progressive Web App (PWA) designed to protect everyday citizens, elders, and families across India from predatory digital communication fraud.
+For the #PromptWar Hackathon (Problem Statement: PS01 — Suspicious Message & Communication Fraud Detector), I built and deployed **BaitCheck** 🎣 ("Don't take the bait.") — a mobile-first, 100% offline Progressive Web App (PWA) designed to protect everyday citizens, elders, and families across India from predatory digital communication fraud.
 
 ### 🔍 The Problem
 Scam syndicates are weaponizing fear and urgency against Indian citizens:

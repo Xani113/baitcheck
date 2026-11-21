@@ -130,13 +130,27 @@ class BaitCheckApp {
       window.scrollTo(0, 0);
     }
 
-    // Update nav active states
+    // Update nav active states (desktop + mobile)
+    const isHome = viewName === 'home';
     document.querySelectorAll('.nav-link').forEach(nl => {
       const href = nl.getAttribute('href') || '';
-      if (href.replace('#', '') === window.location.hash.replace('#', '')) {
+      const matchesHome = isHome && (href === '#/' || href === '#');
+      const matchesHash = href === window.location.hash;
+      if (matchesHome || matchesHash) {
         nl.classList.add('active');
       } else {
         nl.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.bottom-tab-link').forEach(tab => {
+      const href = tab.getAttribute('href') || '';
+      const matchesHome = isHome && (href === '#/' || href === '#');
+      const matchesHash = href === window.location.hash;
+      if (matchesHome || matchesHash) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
       }
     });
 
